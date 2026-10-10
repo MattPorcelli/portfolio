@@ -35,7 +35,7 @@ The homepage should give visitors a concise overview of Matthew's experience and
 
 1. **Introduction and working approach** — telecommunications and network engineering background, specialties, and a concise Listen → Design → Deploy → Enable process.
 2. **Network scale** — selected, verifiable statistics describing the size or reach of the network Matthew works on. Include context and clear units so each statistic is meaningful; do not publish confidential or unverified figures.
-3. **Skills** — relevant technical and professional skills, grouped so visitors can quickly scan areas of strength.
+3. **Skills / Areas of focus** — grouped into Network Design & Planning (IP/MPLS Designs, QoS Strategy, DWDM/Optical Designs, Capacity Planning, Requirements-Based Hardware Selection, Production & Lab Budgetary Planning, Lifecycle Management); Automation & Platforms (Network Automation, Containerlab, Docker, Python, Linux, MCP Servers, Tooling Development); Testing & Observability (Observability, Prometheus, Grafana, Test Automation, Regression Testing, Robot Framework); and Governance & Documentation (National Market Governance, Technical Documentation, Engineering Standards).
 4. **Projects** — work split into two areas:
    - **Network design** — network architecture, design, and engineering work.
    - **Applications built** — software and automation applications Matthew has created.

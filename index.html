@@ -585,13 +585,28 @@
     }
 
     .capability-panel {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
       padding: 1.4rem;
       border: 1px solid var(--border);
       border-radius: 13px;
       background: rgba(20, 30, 44, 0.65);
+    }
+
+    .capability-group h3 {
+      margin: 0 0 0.75rem;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .capability-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
     .capability {
@@ -601,6 +616,12 @@
       background: rgba(142, 184, 242, 0.07);
       color: #d4e2f2;
       font-size: 0.82rem;
+    }
+
+    @media (max-width: 760px) {
+      .capability-panel {
+        grid-template-columns: 1fr;
+      }
     }
 
     .closing {
@@ -1019,18 +1040,55 @@
           <h2 id="skills-title">Areas of focus.</h2>
         </div>
         <p>
-          A snapshot of the network engineering and operational improvement areas I work across.
-          We can refine this list as we shape the project stories.
+          My work spans network design and planning, automation and platforms, testing and observability,
+          and engineering governance. I bring these disciplines together to build reliable networks and
+          make day-to-day operations more effective.
         </p>
       </div>
       <div class="capability-panel" aria-label="Skills">
-        <span class="capability">IP/MPLS</span>
-        <span class="capability">DWDM transport</span>
-        <span class="capability">QoS strategy</span>
-        <span class="capability">Network architecture</span>
-        <span class="capability">Service-provider networks</span>
-        <span class="capability">Network automation</span>
-        <span class="capability">Platform engineering</span>
+        <section class="capability-group" aria-labelledby="focus-network-design">
+          <h3 id="focus-network-design">Network Design &amp; Planning</h3>
+          <div class="capability-list">
+            <span class="capability">IP/MPLS Designs</span>
+            <span class="capability">QoS Strategy</span>
+            <span class="capability">DWDM/Optical Designs</span>
+            <span class="capability">Capacity Planning</span>
+            <span class="capability">Requirements-Based Hardware Selection</span>
+            <span class="capability">Production &amp; Lab Budgetary Planning</span>
+            <span class="capability">Lifecycle Management</span>
+          </div>
+        </section>
+        <section class="capability-group" aria-labelledby="focus-automation">
+          <h3 id="focus-automation">Automation &amp; Platforms</h3>
+          <div class="capability-list">
+            <span class="capability">Network Automation</span>
+            <span class="capability">Containerlab</span>
+            <span class="capability">Docker</span>
+            <span class="capability">Python</span>
+            <span class="capability">Linux</span>
+            <span class="capability">MCP Servers</span>
+            <span class="capability">Tooling Development</span>
+          </div>
+        </section>
+        <section class="capability-group" aria-labelledby="focus-testing-observability">
+          <h3 id="focus-testing-observability">Testing &amp; Observability</h3>
+          <div class="capability-list">
+            <span class="capability">Observability</span>
+            <span class="capability">Prometheus</span>
+            <span class="capability">Grafana</span>
+            <span class="capability">Test Automation</span>
+            <span class="capability">Regression Testing</span>
+            <span class="capability">Robot Framework</span>
+          </div>
+        </section>
+        <section class="capability-group" aria-labelledby="focus-governance">
+          <h3 id="focus-governance">Governance &amp; Documentation</h3>
+          <div class="capability-list">
+            <span class="capability">National Market Governance</span>
+            <span class="capability">Technical Documentation</span>
+            <span class="capability">Engineering Standards</span>
+          </div>
+        </section>
       </div>
     </section>
 
