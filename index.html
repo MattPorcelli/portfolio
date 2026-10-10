@@ -296,6 +296,10 @@
       grid-column: 1 / -1;
     }
 
+    .project-card-featured {
+      grid-column: 1 / -1;
+    }
+
     .project-card,
     .experience-card {
       padding: 1.45rem;
@@ -306,21 +310,47 @@
 
     .practice-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+      grid-template-columns: 1fr;
       margin-top: 1.25rem;
     }
 
     .practice-card {
-      padding: 1rem;
-      border: 1px solid rgba(170, 192, 216, 0.1);
-      border-radius: 10px;
-      background: rgba(12, 19, 29, 0.32);
+      min-width: 0;
+    }
+
+    .practice-card + .practice-card {
+      margin-top: 1.4rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(170, 192, 216, 0.14);
     }
 
     .practice-card h4 {
-      margin: 0 0 0.55rem;
-      font-size: 0.98rem;
+      margin: 0 0 0.65rem;
+      font-size: 1.05rem;
+    }
+
+    .practice-category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .practice-category {
+      margin-top: 1rem;
+    }
+
+    .standards-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 2rem;
+    }
+
+    .practice-category h4,
+    .practice-category h5 {
+      margin: 0 0 0.45rem;
+      color: var(--text);
+      font-size: 0.85rem;
+      letter-spacing: 0.01em;
     }
 
     .practice-card p {
@@ -523,6 +553,16 @@
       line-height: 1.7;
     }
 
+    .project-card .project-note {
+      margin-top: 0.45rem;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .project-note strong {
+      color: var(--accent);
+    }
+
     .stat-value {
       display: block;
       margin: -0.9rem 0 0.5rem;
@@ -539,6 +579,90 @@
 
     .project-card .project-type {
       margin-bottom: 1.1rem;
+    }
+
+    .work-group {
+      margin-top: 1.5rem;
+    }
+
+    .work-group + .work-group {
+      margin-top: 1.7rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .work-group h4 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .work-group > p {
+      margin-bottom: 1rem;
+    }
+
+    .design-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .application-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .work-figure {
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(170, 192, 216, 0.14);
+      border-radius: 10px;
+      background: rgba(12, 19, 29, 0.55);
+    }
+
+    .work-figure a {
+      display: block;
+      background: #edf1f6;
+    }
+
+    .work-figure img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: contain;
+    }
+
+    .work-figure figcaption {
+      padding: 0.65rem 0.75rem;
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 620;
+      line-height: 1.45;
+    }
+
+    .application-figure img {
+      aspect-ratio: 16 / 9;
+    }
+
+    .application-figure figcaption {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .application-figure h4 {
+      margin: 0 0 0.4rem;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .application-figure p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 400;
+      line-height: 1.6;
     }
 
     .experience-grid {
@@ -758,7 +882,24 @@
         grid-column: auto;
       }
 
+      .project-card-featured {
+        grid-column: auto;
+      }
+
+      .design-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .application-gallery {
+        grid-template-columns: 1fr;
+      }
+
       .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .practice-category-grid,
+      .standards-list {
         grid-template-columns: 1fr;
       }
 
@@ -950,8 +1091,9 @@
           <h2 id="network-title">The scale behind the work.</h2>
         </div>
         <p>
-          A few meaningful statistics highlight the size and capabilities of the service-provider
-          network I support, including production and lab device counts and service scale.
+          A few meaningful statistics highlight the scale, capabilities, and reliability of the
+          service-provider network I support—from production and lab device counts and service
+          scale to 99.999% availability.
         </p>
       </div>
       <div class="network-panels">
@@ -1150,38 +1292,151 @@
         </p>
       </div>
       <div class="project-grid">
-        <article class="project-card">
+        <article class="project-card project-card-featured">
           <span class="project-type">NETWORK DESIGN</span>
-          <h3>Network design projects</h3>
-          <p>Selected network architecture and design work will be summarized here, with deeper project pages added as they are ready.</p>
+          <h3>Traffic Behavior and Network Resilience</h3>
+          <p>
+            These examples show how network architecture and traffic behavior change under
+            everyday and failure conditions, followed by a view of geographical and equipment
+            redundancy.
+          </p>
+          <section class="work-group" aria-labelledby="traffic-failure-title">
+            <h4 id="traffic-failure-title">Understanding Network Traffic and Failure Scenarios</h4>
+            <p>Explore the baseline design and traffic flow, then compare how traffic responds to router and fiber events.</p>
+            <div class="design-gallery">
+              <figure class="work-figure">
+                <a href="assets/images/network-design/StandardNetworkDesign.png" target="_blank" rel="noopener" title="Open full-size network design diagram">
+                  <img src="assets/images/network-design/StandardNetworkDesign.png" alt="Standard network design topology diagram" loading="lazy" />
+                </a>
+                <figcaption>Standard Network Design</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/StandardTraffic.png" target="_blank" rel="noopener" title="Open full-size traffic flow diagram">
+                  <img src="assets/images/network-design/StandardTraffic.png" alt="Diagram of standard network traffic flow" loading="lazy" />
+                </a>
+                <figcaption>Standard Traffic Flow</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/RouterHardwareFailure.png" target="_blank" rel="noopener" title="Open full-size router failure diagram">
+                  <img src="assets/images/network-design/RouterHardwareFailure.png" alt="Network traffic behavior during a router hardware failure" loading="lazy" />
+                </a>
+                <figcaption>Router Hardware Failure</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/OpticalFiberEvent.png" target="_blank" rel="noopener" title="Open full-size optical fiber event diagram">
+                  <img src="assets/images/network-design/OpticalFiberEvent.png" alt="Network traffic behavior during an optical fiber event" loading="lazy" />
+                </a>
+                <figcaption>Optical Fiber Event</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/TrafficFlowWithLocalFiber.png" target="_blank" rel="noopener" title="Open full-size local fiber traffic diagram">
+                  <img src="assets/images/network-design/TrafficFlowWithLocalFiber.png" alt="Traffic flow using local fiber without transport" loading="lazy" />
+                </a>
+                <figcaption>Traffic Flow with Local Fiber (No Transport)</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/TrafficFlowWithFiberEvent.png" target="_blank" rel="noopener" title="Open full-size fiber event traffic diagram">
+                  <img src="assets/images/network-design/TrafficFlowWithFiberEvent.png" alt="Traffic flow during a fiber event" loading="lazy" />
+                </a>
+                <figcaption>Traffic Flow with Fiber Event</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/TrafficFlowWithFiberEventMulti-Hub.png" target="_blank" rel="noopener" title="Open full-size multi-hub fiber event diagram">
+                  <img src="assets/images/network-design/TrafficFlowWithFiberEventMulti-Hub.png" alt="Traffic flow across multiple hubs during a fiber event" loading="lazy" />
+                </a>
+                <figcaption>Traffic Flow with Fiber Event Multi-Hub</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/GeographicalandRedundantEquipmentProtecton.png" target="_blank" rel="noopener" title="Open full-size geographical protection diagram">
+                  <img src="assets/images/network-design/GeographicalandRedundantEquipmentProtecton.png" alt="Geographical and redundant equipment protection diagram" loading="lazy" />
+                </a>
+                <figcaption>Geographical and Redundant Equipment Protection</figcaption>
+              </figure>
+            </div>
+          </section>
         </article>
-        <article class="project-card">
-          <span class="project-type">APPLICATIONS BUILT</span>
-          <h3>Applications and automation</h3>
-          <p>Applications I have built will be introduced here, with detail pages for the problem, approach, and screenshots.</p>
+        <article class="project-card project-card-featured">
+          <span class="project-type">APPLICATIONS BUILT WITH AI</span>
+          <h3>Tools for Network Engineering Workflows</h3>
+          <p>Tools I built to make network design, lab work, inventory planning, and device provisioning more effective.</p>
+          <p class="project-note"><strong>Note:</strong> Screenshots are sanitized; confidential details are blurred or replaced with generic values.</p>
+          <div class="application-gallery">
+            <figure class="work-figure application-figure">
+              <a href="assets/images/applications/Containerlab/Canvas.png" target="_blank" rel="noopener" title="Open full-size Containerlab Orchestrator screenshot">
+                <img src="assets/images/applications/Containerlab/Canvas.png" alt="Containerlab Orchestrator topology design canvas" loading="lazy" />
+              </a>
+              <figcaption>
+                <h4>Containerlab Orchestrator</h4>
+                <p>Design and deploy Containerlab topologies visually by placing Nokia routers and Linux hosts on a canvas, configuring connections and startup settings, and deploying without the terminal. Import production routers by hostname or IP with hardware details and configurations prefilled, then use Grafana, Prometheus, and gNMIc telemetry to monitor device health and performance.</p>
+              </figcaption>
+            </figure>
+            <figure class="work-figure application-figure">
+              <a href="assets/images/applications/Harbor/YML Configurator.png" target="_blank" rel="noopener" title="Open full-size Harbor YML Configurator screenshot">
+                <img src="assets/images/applications/Harbor/YML Configurator.png" alt="Harbor YML Configurator interface" loading="lazy" />
+              </a>
+              <figcaption>
+                <h4>Harbor</h4>
+                <p>A unified workspace for hardware lab testing, bringing multiple engineering tools together through REST APIs so engineers can work without switching between separate applications. Docker containers connect Robot Framework tests to Ixia traffic generators, analyze test traffic, and report findings.</p>
+              </figcaption>
+            </figure>
+            <figure class="work-figure application-figure">
+              <a href="assets/images/applications/Endpoint/Planning.png" target="_blank" rel="noopener" title="Open full-size Endpoint replacement planning screenshot">
+                <img src="assets/images/applications/Endpoint/Planning.png" alt="Endpoint equipment lifecycle replacement planning view" loading="lazy" />
+              </a>
+              <figcaption>
+                <h4>Endpoint</h4>
+                <p>Tracks end-of-sale, end-of-support, and end-of-life equipment using live vendor inventory. API integration with the EMS turns network data into lifecycle budget estimates in minutes.</p>
+              </figcaption>
+            </figure>
+            <figure class="work-figure application-figure">
+              <a href="assets/images/applications/ZTP/Dashboard.png" target="_blank" rel="noopener" title="Open full-size ZTP Orchestrator screenshot">
+                <img src="assets/images/applications/ZTP/Dashboard.png" alt="ZTP Orchestrator provisioning dashboard" loading="lazy" />
+              </a>
+              <figcaption>
+                <h4>ZTP Orchestrator (Proof of Concept)</h4>
+                <p>A proof of concept for deterministic, secure, and observable device provisioning. Devices are pre-registered, unknown devices fail closed, and provisioning state is tracked in real time. The goal is to deliver fully provisioned routers with verified SNMPv3 credentials, without CLI access or manual intervention.</p>
+              </figcaption>
+            </figure>
+          </div>
         </article>
         <article class="project-card project-card-practice">
           <span class="project-type">ENGINEERING PRACTICE</span>
-          <h3>Testing, evaluations, and standards</h3>
-          <p>Examples of how I evaluate systems, validate changes, and document consistent engineering practices.</p>
+          <h3>Lab Testing &amp; Evaluations</h3>
           <div class="practice-grid">
-            <section class="practice-card" aria-labelledby="testing-evaluations-title">
-              <h4 id="testing-evaluations-title">Testing &amp; Evaluations</h4>
-              <p>Show the purpose, approach, and practical takeaways of testing work.</p>
-              <ul>
-                <li>Evaluation goals and scope</li>
-                <li>Test approach and coverage</li>
-                <li>Findings and recommendations</li>
-              </ul>
+            <section class="practice-card" aria-label="Evaluation examples">
+              <p>Evaluations combined technical assessment with lab and regression testing, where applicable, to validate capabilities, limitations, network integration, release stability, and cost considerations.</p>
+              <div class="practice-category-grid">
+                <div class="practice-category">
+                  <h4>IP/MPLS</h4>
+                  <ul>
+                    <li><strong>Nokia IXR-e2c evaluation</strong> — Evaluated 1G, 10G, 25G, and 100G interface capabilities, network integration, hardware limitations, and potential cost savings.</li>
+                    <li><strong>Nokia IXR-e2 evaluation</strong> — Evaluated capabilities up to 400G—including 1G, 10G, 25G, and 100G interfaces—along with network integration, hardware limitations, and potential cost savings.</li>
+                  </ul>
+                </div>
+                <div class="practice-category">
+                  <h4>DWDM</h4>
+                  <ul>
+                    <li><strong>WSNOC</strong> — Validated new EMS features and stability across future releases.</li>
+                    <li><strong>1830 PSS nodal code</strong> — Evaluated new nodal-code features and release stability.</li>
+                    <li><strong>D6A2T4E</strong> — Assessed card capabilities, traffic and loss limitations, and potential cost savings.</li>
+                    <li><strong>PSD-2</strong> — Evaluated device capabilities and limitations for traffic handling and loss.</li>
+                    <li><strong>IPREAMP</strong> — Evaluated card capabilities and the limits of alternative transponder and ROADM cards to assess bookended-solution feasibility.</li>
+                  </ul>
+                </div>
+              </div>
             </section>
             <section class="practice-card" aria-labelledby="standards-documentation-title">
               <h4 id="standards-documentation-title">Standards &amp; Documentation</h4>
-              <p>Highlight authored guidance and how it supports consistent engineering.</p>
-              <ul>
-                <li>Standards, procedures, or decision criteria</li>
-                <li>Requirements and intended audience</li>
-                <li>Operational purpose and outcomes</li>
-              </ul>
+              <p>DWDM standards and procedures guide field and provisioning teams through consistent, secure network deployment and maintenance.</p>
+              <div class="practice-category">
+                <h5>DWDM</h5>
+                <ul class="standards-list">
+                  <li><strong>Commissioning: Configuration and Standards Guide</strong> — Guides field technicians through loading the correct nodal code and applying secure, standardized configurations before deployment.</li>
+                  <li><strong>Equipment Installation and Node Insertion</strong> — Aligns field technicians and provisioners on fiber connections between nodes, then provides EMS standards to follow once a device is visible in the network.</li>
+                  <li><strong>Service Provisioning</strong> — Guides provisioning teams through turning up wave services across the optical network in accordance with established standards.</li>
+                  <li><strong>CBOA Nodal Software Upgrade via WSNOC</strong> — An end-to-end method of procedure (MOP) for upgrading 1830 PSS and PSD-10 shelves, with validation steps and checks to help protect the network's 99.999% availability objective.</li>
+                </ul>
+              </div>
             </section>
           </div>
         </article>
