@@ -327,13 +327,20 @@
 
     .network-lab-groups {
       display: grid;
-      gap: 1.25rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .network-lab-groups > .network-group {
+      grid-column: span 2;
     }
 
     .network-lab-secondary-groups {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
+      grid-column: span 2;
+      gap: 1rem;
     }
 
     .network-lab-secondary-groups .network-metrics-lab {
@@ -690,6 +697,15 @@
 
       .network-metrics {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .network-lab-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .network-lab-groups > .network-group,
+      .network-lab-secondary-groups {
+        grid-column: auto;
       }
 
       .transport-grid {
