@@ -27,13 +27,13 @@ The design uses a dark navy palette with blue and teal accents. It is being deve
 
 ## Current site
 
-The site is a static page built with HTML and CSS, without a JavaScript framework or build step. The homepage is structured around an introduction and portrait, the numbered Listen → Design → Deploy → Enable approach, network scale, skills, selected projects, experience, and contact. The introduction shows a résumé placeholder styled like the prominent Contact link, plus a LinkedIn link; the résumé placeholder will become a download link once the PDF is added. The contact options appear in this order: email, cover letter, résumé, and LinkedIn. Email opens a message in the visitor's configured mail app; the résumé and cover-letter items will become download links after their PDFs are added.
+The site is a static page built with HTML and CSS, without a JavaScript framework or build step. The homepage is structured around an introduction and portrait, the numbered Listen → Design → Deploy → Enable approach, network scale, skills, selected projects, experience, and contact. The introduction shows a résumé placeholder styled like the prominent Contact link, plus a LinkedIn link; the résumé placeholder will become a download link once the PDF is added. The contact section highlights the intersection of networking, software engineering, infrastructure automation, and AI-assisted development. Contact options appear in this order: email, cover letter, résumé, and LinkedIn. Email opens a message in the visitor's configured mail app; the résumé and cover-letter items will become download links after their PDFs are added.
 
 ## Planned portfolio content
 
 The homepage should give visitors a concise overview of Matthew's experience and work, with links to deeper project stories where useful:
 
-1. **Introduction and working approach** — telecommunications and network engineering background, specialties, and a concise Listen → Design → Deploy → Enable process.
+1. **Introduction and working approach** — 20+ years in telecommunications and 17+ years in network engineering, core specialties, and a concise Listen → Design → Deploy → Enable process.
 2. **Network scale** — selected, verifiable statistics describing the size or reach of the network Matthew works on. Include context and clear units so each statistic is meaningful; do not publish confidential or unverified figures.
 3. **Skills / Areas of focus** — grouped into Network Design & Planning (IP/MPLS Designs, QoS Strategy, DWDM/Optical Designs, Capacity Planning, Requirements-Based Hardware Selection, Production & Lab Budgetary Planning, Lifecycle Management); Automation & Platforms (Network Automation, Containerlab, Docker, Python, Linux, MCP Servers, Tooling Development); Testing & Observability (Observability, Prometheus, Grafana, Test Automation, Regression Testing, Robot Framework); and Governance & Documentation (National Market Governance, Technical Documentation, Engineering Standards).
 4. **Projects** — work split into two areas:
