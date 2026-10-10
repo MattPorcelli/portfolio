@@ -325,6 +325,21 @@
       gap: 1.25rem;
     }
 
+    .network-lab-groups {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .network-lab-secondary-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .network-lab-secondary-groups .network-metrics-lab {
+      grid-template-columns: 1fr;
+    }
+
     .network-group h4 {
       margin: 0 0 0.75rem;
       color: var(--accent);
@@ -341,7 +356,7 @@
     }
 
     .network-metrics-lab {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .network-metric {
@@ -376,6 +391,18 @@
       color: var(--text);
       font-size: 0.88rem;
       font-weight: 700;
+    }
+
+    .network-metric-value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .network-metric-unit {
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.4;
     }
 
     .transport-grid {
@@ -714,6 +741,10 @@
         grid-template-columns: 1fr;
       }
 
+      .network-lab-secondary-groups {
+        grid-template-columns: 1fr;
+      }
+
       .transport-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -849,20 +880,29 @@
               <div class="network-metrics">
                 <div class="network-metric">
                   <div>
-                    <span class="network-metric-label network-metric-label-strong">Core Routers</span>
-                    <span class="network-metric-value">700+</span>
+                    <span class="network-metric-label network-metric-label-strong">Core</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">700+</span>
+                      <span class="network-metric-unit">Routers</span>
+                    </span>
                   </div>
                 </div>
                 <div class="network-metric">
                   <div>
-                    <span class="network-metric-label network-metric-label-strong">Access Routers</span>
-                    <span class="network-metric-value">79,000+</span>
+                    <span class="network-metric-label network-metric-label-strong">Access</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">79,000+</span>
+                      <span class="network-metric-unit">Routers</span>
+                    </span>
                   </div>
                 </div>
                 <div class="network-metric">
                   <div>
-                    <span class="network-metric-label network-metric-label-strong">Services Built</span>
-                    <span class="network-metric-value">1.2M+</span>
+                    <span class="network-metric-label network-metric-label-strong">Built</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">1.2M+</span>
+                      <span class="network-metric-unit">Services</span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -897,30 +937,59 @@
         </article>
         <article class="network-panel">
           <h3>Lab Environment</h3>
-          <div class="network-metrics network-metrics-lab">
-            <div class="network-metric">
-              <div>
-                <span class="network-metric-label network-metric-label-strong">Core Routers</span>
-                <span class="network-metric-value">30+</span>
+          <div class="network-lab-groups">
+            <section class="network-group" aria-labelledby="lab-ipmpls">
+              <h4 id="lab-ipmpls">IP/MPLS</h4>
+              <div class="network-metrics network-metrics-lab">
+                <div class="network-metric">
+                  <div>
+                    <span class="network-metric-label network-metric-label-strong">Core</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">30+</span>
+                      <span class="network-metric-unit">Routers</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="network-metric">
+                  <div>
+                    <span class="network-metric-label network-metric-label-strong">Access</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">100+</span>
+                      <span class="network-metric-unit">Routers</span>
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="network-metric">
-              <div>
-                <span class="network-metric-label network-metric-label-strong">Access Routers</span>
-                <span class="network-metric-value">100+</span>
-              </div>
-            </div>
-            <div class="network-metric">
-              <div>
-                <span class="network-metric-label network-metric-label-strong">Transport Devices</span>
-                <span class="network-metric-value">20+</span>
-              </div>
-            </div>
-            <div class="network-metric">
-              <div>
-                <span class="network-metric-label network-metric-label-strong">Virtual Machines</span>
-                <span class="network-metric-value">10</span>
-              </div>
+            </section>
+            <div class="network-lab-secondary-groups">
+              <section class="network-group" aria-labelledby="lab-transport">
+                <h4 id="lab-transport">Transport</h4>
+                <div class="network-metrics network-metrics-lab">
+                  <div class="network-metric">
+                    <div>
+                      <span class="network-metric-label network-metric-label-strong">Access</span>
+                      <span class="network-metric-value-row">
+                        <span class="network-metric-value">20+</span>
+                        <span class="network-metric-unit">Nodes</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="network-group" aria-labelledby="lab-virtualization">
+                <h4 id="lab-virtualization">Virtualization</h4>
+                <div class="network-metrics network-metrics-lab">
+                  <div class="network-metric">
+                    <div>
+                      <span class="network-metric-label network-metric-label-strong">Instances</span>
+                      <span class="network-metric-value-row">
+                        <span class="network-metric-value">10</span>
+                        <span class="network-metric-unit">VMs</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </article>

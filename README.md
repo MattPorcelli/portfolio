@@ -44,12 +44,12 @@ The homepage should give visitors a concise overview of Matthew's experience and
 5. **Experience** — a concise summary of key résumé points, with the full résumé available to download when added.
 6. **Contact** — an email link, downloadable cover letter and résumé PDFs when available, and a LinkedIn profile link.
 
-Keep the homepage focused on summaries and evidence. Use the numbered vertical layout for the working approach and the skills chips for technical focus areas. In the network section, group the IP/MPLS production metrics under one label, with bold labels above the values; show transport categories with their names at the top of each card and larger, stacked node and service counts, and put the lab counts in a separate panel below. Project examples should demonstrate outcomes directly, avoiding separate sections that repeat the same generic claims.
+Keep the homepage focused on summaries and evidence. Use the numbered vertical layout for the working approach and the skills chips for technical focus areas. In the network section, group the IP/MPLS production and lab metrics under colored IP/MPLS labels, with concise bold category labels above prominent counts and smaller muted units alongside; show transport categories with their names at the top of each card and larger, stacked node and service counts. Organize the lab panel with colored IP/MPLS, Transport, and Virtualization group labels and metric cards beneath them; show the Transport and Virtualization groups side by side on wider screens and stack them on narrow screens. Project examples should demonstrate outcomes directly, avoiding separate sections that repeat the same generic claims.
 
 The network statistics are organized as:
 
 - **Production Network** — one IP/MPLS group with Core Routers (700+), Access Routers (79,000+), and Services Built (1.2M+); a separate three-card transport group ordered Core (combined Backbone / Metro: 1,100+ nodes, 2,700+ services), Access (600+ nodes, 1,200+ services), and OTN (200+ nodes, 2,000+ services).
-- **Lab Environment** — IP/MPLS Core (30+ routers), IP/MPLS Access (100+ routers), Transport (20+ devices), and Virtualization (10 VMs).
+- **Lab Environment** — an IP/MPLS group with Core Routers (30+) and Access Routers (100+), a Transport group with Access (20+ Nodes), and a Virtualization group with 10 virtual machines.
 
 Provide context for what is included in each count.
 
