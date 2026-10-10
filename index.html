@@ -553,14 +553,26 @@
       line-height: 1.7;
     }
 
-    .project-card .project-note {
-      margin-top: 0.45rem;
-      font-size: 0.78rem;
-      line-height: 1.5;
+    .ai-approach {
+      margin-top: 1.4rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(170, 192, 216, 0.12);
     }
 
-    .project-note strong {
-      color: var(--accent);
+    .ai-approach h4 {
+      margin: 0 0 0.35rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .project-card .ai-approach p {
+      max-width: 900px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.65;
     }
 
     .stat-value {
@@ -1002,6 +1014,7 @@
         <span>Scottsdale, Arizona</span>
       </a>
       <nav class="site-nav" aria-label="Main navigation">
+        <a href="#top">Home</a>
         <a href="#approach">Approach</a>
         <a href="#network">Network</a>
         <a href="#skills">Skills</a>
@@ -1358,8 +1371,7 @@
         <article class="project-card project-card-featured">
           <span class="project-type">APPLICATIONS BUILT WITH AI</span>
           <h3>Tools for Network Engineering Workflows</h3>
-          <p>Tools I built to make network design, lab work, inventory planning, and device provisioning more effective.</p>
-          <p class="project-note"><strong>Note:</strong> Screenshots are sanitized; confidential details are blurred or replaced with generic values.</p>
+          <p>Tools I built to make network design, lab work, inventory planning, and device provisioning more effective. All four applications are run in one or more Docker containers.<br /><br /><strong>Note:</strong> Screenshots are sanitized, with confidential details blurred or replaced by generic values.</p>
           <div class="application-gallery">
             <figure class="work-figure application-figure">
               <a href="assets/images/applications/Containerlab/Canvas.png" target="_blank" rel="noopener" title="Open full-size Containerlab Orchestrator screenshot">
@@ -1398,6 +1410,10 @@
               </figcaption>
             </figure>
           </div>
+          <aside class="ai-approach" aria-labelledby="ai-approach-title">
+            <h4 id="ai-approach-title">AI-assisted development</h4>
+            <p>When I work with AI, I don’t just hand it a problem and ask for code. I define the design, architecture, direction, and order of operations first. AI accelerates implementation, but it cannot replace the thinking that has to happen first.</p>
+          </aside>
         </article>
         <article class="project-card project-card-practice">
           <span class="project-type">ENGINEERING PRACTICE</span>
