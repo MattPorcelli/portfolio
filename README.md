@@ -36,15 +36,18 @@ The homepage should give visitors a concise overview of Matthew's experience and
 1. **Introduction and working approach** — 20+ years in telecommunications and 17+ years in network engineering, core specialties, and a concise Listen → Design → Deploy → Enable process.
 2. **Network scale** — selected, verifiable statistics describing the size or reach of the network Matthew works on. Include context and clear units so each statistic is meaningful; do not publish confidential or unverified figures.
 3. **Skills / Areas of focus** — grouped into Network Design & Planning (IP/MPLS Designs, QoS Strategy, DWDM/Optical Designs, Capacity Planning, Requirements-Based Hardware Selection, Production & Lab Budgetary Planning, Lifecycle Management); Automation & Platforms (Network Automation, Containerlab, Docker, Python, Linux, MCP Servers, Tooling Development); Testing & Observability (Observability, Prometheus, Grafana, Test Automation, Regression Testing, Robot Framework); and Governance & Documentation (National Market Governance, Technical Documentation, Engineering Standards).
-4. **Projects** — work split into two areas:
+4. **Selected work** — work presented in three areas:
    - **Network design** — network architecture, design, and engineering work.
    - **Applications built** — software and automation applications Matthew has created.
+   - **Engineering practice** — two categories:
+     - **Testing & Evaluations** — evaluation goals and scope, test approach and coverage, findings, and recommendations.
+     - **Standards & Documentation** — authored standards, procedures, or decision criteria; their requirements, intended audience, and operational purpose.
 
-   Each project can have a short homepage summary and a link to a dedicated detail page with the context, Matthew's contribution, decisions, outcomes, and screenshots where appropriate.
+   Each example can have a short homepage summary and a link to a dedicated detail page with the context, Matthew's contribution, decisions, and outcomes. Use bullets to summarize contributions and results; images are optional and should only be included when they add useful context.
 5. **Experience** — a concise summary of key résumé points, with the full résumé available to download when added.
 6. **Contact** — an email link, downloadable cover letter and résumé PDFs when available, and a LinkedIn profile link.
 
-Keep the homepage focused on summaries and evidence. Use the numbered vertical layout for the working approach and the skills chips for technical focus areas. Introduce the Areas of Focus section with: “My work spans network design and planning, automation and platforms, testing and observability, and engineering governance. I bring these disciplines together to build reliable networks and make day-to-day operations more effective.” In the network section, group the IP/MPLS production and lab metrics under colored IP/MPLS labels, with concise bold category labels above prominent counts and smaller muted units alongside; show transport categories with their names at the top of each card and larger, stacked node and service counts. Organize the lab panel with colored IP/MPLS, Transport, and Virtualization group labels and metric cards beneath them; arrange the four lab metrics in a compact row on wide screens, with responsive grouping and stacking at narrower widths. Project examples should demonstrate outcomes directly, avoiding separate sections that repeat the same generic claims.
+Keep the homepage focused on summaries and evidence. Use the numbered vertical layout for the working approach and grouped focus areas for technical skills. Introduce the Areas of Focus section with: “My work spans network design and planning, automation and platforms, testing and observability, and engineering governance. I bring these disciplines together to build reliable networks and make day-to-day operations more effective.” The Projects section presents Network Design and Applications Built alongside Engineering Practice, with Testing & Evaluations and Standards & Documentation subcategories. In the network section, group the IP/MPLS production and lab metrics under colored IP/MPLS labels, with concise bold category labels above prominent counts and smaller muted units alongside; show transport categories with their names at the top of each card and larger, stacked node and service counts. Organize the lab panel with colored IP/MPLS, Transport, and Virtualization group labels and metric cards beneath them; arrange the four lab metrics in a compact row on wide screens, with responsive grouping and stacking at narrower widths. The Contact section currently uses this statement: “I’m focused on the intersection of networking, software engineering, and infrastructure automation, leveraging AI-assisted development to build and operate systems more effectively.” Its paragraph uses the full available width of the contact card.
 
 The network statistics are organized as:
 
@@ -66,9 +69,16 @@ portfolio/
 │   ├── network-design/
 │   │   └── project-name/
 │   │       └── index.html   # Network design project story and supporting visuals
-│   └── applications/
-│       └── app-name/
-│           └── index.html   # Application story, screenshots, and details
+│   ├── applications/
+│   │   └── app-name/
+│   │       └── index.html   # Application story, screenshots, and details
+│   └── engineering-practice/
+│       ├── testing-evaluations/
+│       │   └── evaluation-name/
+│       │       └── index.html   # Goals, coverage, findings, recommendations
+│       └── standards/
+│           └── standard-name/
+│               └── index.html   # Authored guidance, audience, requirements, purpose
 └── assets/                  # Static files used by the site
     ├── images/
     │   ├── Matthew-Porcelli.jpg  # Homepage portrait
@@ -81,11 +91,11 @@ The homepage portrait is currently stored directly in `assets/images/`. Project 
 
 ## Project detail pages
 
-The homepage will stay concise so visitors can scan the work quickly. Network design projects and applications built can each have a short entry with a name, context, and Matthew's contribution, plus a clear link to a dedicated detail page.
+The homepage will stay concise so visitors can scan the work quickly. Network design projects, applications built, and engineering-practice examples can each have a short entry with a name, context, and Matthew's contribution, plus a clear link to a dedicated detail page.
 
-The detail page can tell the fuller story: context, approach, key decisions, outcome, and relevant technologies. Application pages can show screenshots with captions and useful alternative text; network design pages can include appropriate diagrams or other supporting visuals. A project-specific folder under `projects/` keeps each page easy to find and share directly.
+The detail page can tell the fuller story: context, approach, key decisions, outcome, and relevant technologies. Application pages can show screenshots with captions and useful alternative text; network design pages can include appropriate diagrams or other supporting visuals. Testing & Evaluations pages can use concise bullets for goals, test coverage, findings, and recommendations. Standards & Documentation pages can summarize the authored guidance, audience, requirements, and operational purpose. Visuals are optional for these engineering-practice examples; use them only when they clarify the work. A project-specific folder under `projects/` keeps each page easy to find and share directly.
 
-For example, a homepage link to `projects/applications/app-name/` opens that application's `index.html`. Store its visuals under `assets/images/projects/app-name/` and use descriptive filenames such as `workflow-overview.jpg`.
+For example, a homepage link to `projects/applications/app-name/` opens that application's `index.html`. A testing evaluation can live at `projects/engineering-practice/testing-evaluations/evaluation-name/`, and an authored standard at `projects/engineering-practice/standards/standard-name/`. Store visuals under `assets/images/projects/<project-name>/` when they are useful, with descriptive filenames such as `workflow-overview.jpg`.
 
 ## Using the assets directory
 

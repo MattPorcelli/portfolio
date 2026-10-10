@@ -292,12 +292,50 @@
       gap: 1rem;
     }
 
+    .project-card-practice {
+      grid-column: 1 / -1;
+    }
+
     .project-card,
     .experience-card {
       padding: 1.45rem;
       border: 1px solid var(--border);
       border-radius: 13px;
       background: linear-gradient(145deg, rgba(25, 37, 54, 0.86), rgba(20, 30, 44, 0.68));
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .practice-card {
+      padding: 1rem;
+      border: 1px solid rgba(170, 192, 216, 0.1);
+      border-radius: 10px;
+      background: rgba(12, 19, 29, 0.32);
+    }
+
+    .practice-card h4 {
+      margin: 0 0 0.55rem;
+      font-size: 0.98rem;
+    }
+
+    .practice-card p {
+      margin: 0 0 0.65rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.6;
+    }
+
+    .practice-card ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.65;
     }
 
     .network-panels {
@@ -716,6 +754,14 @@
         grid-template-columns: 1fr;
       }
 
+      .project-card-practice {
+        grid-column: auto;
+      }
+
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
       .network-metrics {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1096,11 +1142,11 @@
       <div class="section-heading">
         <div>
           <p class="section-kicker">Selected work</p>
-          <h2 id="projects-title">Projects, in two parts.</h2>
+          <h2 id="projects-title">Selected work, in three areas.</h2>
         </div>
         <p>
-          I’ll share concise summaries here, with dedicated pages for the project context,
-          my contribution, design decisions, and screenshots or supporting visuals.
+          Explore network designs, applications, and engineering practices through the context,
+          decisions, contributions, and outcomes behind the work.
         </p>
       </div>
       <div class="project-grid">
@@ -1113,6 +1159,31 @@
           <span class="project-type">APPLICATIONS BUILT</span>
           <h3>Applications and automation</h3>
           <p>Applications I have built will be introduced here, with detail pages for the problem, approach, and screenshots.</p>
+        </article>
+        <article class="project-card project-card-practice">
+          <span class="project-type">ENGINEERING PRACTICE</span>
+          <h3>Testing, evaluations, and standards</h3>
+          <p>Examples of how I evaluate systems, validate changes, and document consistent engineering practices.</p>
+          <div class="practice-grid">
+            <section class="practice-card" aria-labelledby="testing-evaluations-title">
+              <h4 id="testing-evaluations-title">Testing &amp; Evaluations</h4>
+              <p>Show the purpose, approach, and practical takeaways of testing work.</p>
+              <ul>
+                <li>Evaluation goals and scope</li>
+                <li>Test approach and coverage</li>
+                <li>Findings and recommendations</li>
+              </ul>
+            </section>
+            <section class="practice-card" aria-labelledby="standards-documentation-title">
+              <h4 id="standards-documentation-title">Standards &amp; Documentation</h4>
+              <p>Highlight authored guidance and how it supports consistent engineering.</p>
+              <ul>
+                <li>Standards, procedures, or decision criteria</li>
+                <li>Requirements and intended audience</li>
+                <li>Operational purpose and outcomes</li>
+              </ul>
+            </section>
+          </div>
         </article>
       </div>
     </section>
