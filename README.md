@@ -27,7 +27,7 @@ The design uses a dark navy palette with blue and teal accents. It is being deve
 
 ## Current site
 
-The site is a static page built with HTML and CSS, without a JavaScript framework or build step. The homepage is structured around an introduction and portrait, the numbered Listen → Design → Deploy → Enable approach, network scale, skills, selected projects, experience, and contact. The introduction includes a résumé download link and a LinkedIn link. The contact section highlights the intersection of networking, software engineering, infrastructure automation, and AI-assisted development. Contact options appear in this order: email, résumé, and LinkedIn. Email opens a message in the visitor's configured mail app; the résumé downloads from `assets/resume/`.
+The site is a static page built with HTML and CSS, without a JavaScript framework or build step. The homepage is structured around an introduction and portrait, the numbered Listen → Design → Deploy → Enable approach, network scale, skills, selected projects, experience, and contact. The introduction includes a résumé download link, a LinkedIn link, and a clear statement that Matthew is open to remote opportunities and positions in the Phoenix metro area. The contact section highlights the intersection of networking, software engineering, infrastructure automation, and AI-assisted development. Contact options appear in this order: email, résumé, and LinkedIn. Email opens a message in the visitor's configured mail app; the résumé downloads from `assets/resume/`.
 
 ## Planned portfolio content
 
