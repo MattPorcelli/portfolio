@@ -27,7 +27,7 @@ The design uses a dark navy palette with blue and teal accents. It is being deve
 
 ## Current site
 
-The site is a static page built with HTML and CSS, without a JavaScript framework or build step. The homepage is structured around an introduction and portrait, the numbered Listen → Design → Deploy → Enable approach, network scale, skills, selected projects, experience, and contact. The introduction shows a résumé placeholder styled like the prominent Contact link, plus a LinkedIn link; the résumé placeholder will become a download link once the PDF is added. The contact section highlights the intersection of networking, software engineering, infrastructure automation, and AI-assisted development. Contact options appear in this order: email, cover letter, résumé, and LinkedIn. Email opens a message in the visitor's configured mail app; the résumé and cover-letter items will become download links after their PDFs are added.
+The site is a static page built with HTML and CSS, without a JavaScript framework or build step. The homepage is structured around an introduction and portrait, the numbered Listen → Design → Deploy → Enable approach, network scale, skills, selected projects, experience, and contact. The introduction includes a résumé download link and a LinkedIn link. The contact section highlights the intersection of networking, software engineering, infrastructure automation, and AI-assisted development. Contact options appear in this order: email, résumé, and LinkedIn. Email opens a message in the visitor's configured mail app; the résumé downloads from `assets/resume/`.
 
 ## Planned portfolio content
 
@@ -44,8 +44,8 @@ The homepage should give visitors a concise overview of Matthew's experience and
      - **Standards & Documentation** — DWDM commissioning, node installation/insertion, wave-service provisioning, and CBOA nodal software upgrade guidance for field technicians and provisioners.
 
    The homepage should first explain each category, then preview selected examples with concise context and a useful visual. Engineering Practice is presented as one full-width “Lab Testing & Evaluations” panel, with IP/MPLS and DWDM evaluation groups followed by a separate Standards & Documentation section; the lists use responsive columns where space allows. Network design visuals and application screenshots include a note that confidential details are blurred or replaced with generic values. Fuller case-study pages can later expand on the problem, Matthew's contribution, design decisions, implementation, and outcomes.
-5. **Experience** — a dot-marker career timeline covering Cox Communications roles from 2006 to the present, followed by certifications and education. Résumé download controls remain inactive until the document is finalized.
-6. **Contact** — an email link, downloadable cover letter and résumé PDFs when available, and a LinkedIn profile link.
+5. **Experience** — a dot-marker career timeline covering Cox Communications roles from 2006 to the present, followed by certifications and education. The résumé is downloadable from both the introduction and contact links.
+6. **Contact** — an email link, the résumé download, and a LinkedIn profile link.
 
 Keep the homepage focused on summaries and evidence. Use the numbered vertical layout for the working approach and grouped focus areas for technical skills. Introduce the Areas of Focus section with: “My work spans network design and planning, automation and platforms, testing and observability, and engineering governance. I bring these disciplines together to build reliable networks and make day-to-day operations more effective.” The Selected Work section previews Network Design and Applications Built with AI alongside Engineering Practice, with Testing & Evaluations and Standards & Documentation subcategories. Network design examples are grouped into “Understanding Network Traffic and Failure Scenarios,” with the geographical and redundant equipment protection diagram included in the same gallery. Application previews introduce Containerlab Orchestrator, Harbor, Endpoint, and the ZTP Orchestrator proof of concept with brief context and screenshots; all four applications are run in one or more Docker containers, and screenshots note that confidential details are blurred or replaced with generic values. A brief AI-assisted development note follows the application gallery: when working with AI, I do not simply hand it a problem and ask for code; I define the design, architecture, direction, and order of operations first. AI accelerates implementation but cannot replace the thinking that has to happen first. Containerlab Orchestrator is summarized as a visual topology builder with production-device import and live telemetry, while Harbor is a unified workspace that connects engineering tools through REST APIs to reduce application switching, with Docker-based Robot Framework tests, Ixia traffic generation, and results analysis. Endpoint is described as using APIs to integrate with the EMS, turning live inventory into lifecycle budget estimates within minutes. ZTP Orchestrator is described as a proof of concept for deterministic, secure, observable provisioning, using device pre-registration, fail-closed handling of unknown devices, real-time state tracking, and a goal of delivering routers with verified SNMPv3 credentials without CLI access or manual intervention. Testing & Evaluations notes that lab and regression testing were used where applicable. Standards & Documentation previews four DWDM guides for commissioning, equipment installation and node insertion, wave-service provisioning, and CBOA nodal software upgrades, including validation guidance intended to protect the network's 99.999% availability objective. More detail can be added to linked case-study pages later. In the network section, group the IP/MPLS production and lab metrics under colored IP/MPLS labels, with concise bold category labels above prominent counts and smaller muted units alongside; show transport categories with their names at the top of each card and larger, stacked node and service counts. Organize the lab panel with colored IP/MPLS, Transport, and Virtualization group labels and metric cards beneath them; arrange the four lab metrics in a compact row on wide screens, with responsive grouping and stacking at narrower widths. The Contact section currently uses this statement: “I’m focused on the intersection of networking, software engineering, and infrastructure automation, leveraging AI-assisted development to build and operate systems more effectively.” Its paragraph uses the full available width of the contact card.
 
@@ -80,6 +80,8 @@ portfolio/
 │           └── standard-name/
 │               └── index.html   # Authored guidance, audience, requirements, purpose
 └── assets/                  # Static files used by the site
+    ├── resume/
+    │   └── Matthew Porcelli_Resume.pdf  # Downloadable résumé
     ├── images/
     │   ├── Matthew-Porcelli.jpg  # Homepage portrait
     │   ├── network-design/  # Network design diagrams and visuals
@@ -96,10 +98,10 @@ portfolio/
     │       ├── Endpoint/
     │       ├── Harbor/
     │       └── ZTP/
-    └── documents/           # Planned: downloadable résumé and cover letter PDFs
+    └── documents/           # Planned: downloadable cover letter PDF
 ```
 
-The homepage portrait is stored directly in `assets/images/`. Network design visuals are in `assets/images/network-design/`; application screenshots are grouped by application under `assets/images/applications/`. Add a design-specific subfolder under `network-design/` if the image collection grows enough to benefit from that separation. The documents folder is planned and can be added when the résumé and cover letter PDFs are ready. Use descriptive filenames and paths that work when hosted beneath the GitHub Pages site URL.
+The homepage portrait is stored directly in `assets/images/`. Network design visuals are in `assets/images/network-design/`; application screenshots are grouped by application under `assets/images/applications/`. The current résumé is stored in `assets/resume/` and linked from the homepage. Add a design-specific subfolder under `network-design/` if the image collection grows enough to benefit from that separation. The documents folder is planned for the cover letter PDF. Use descriptive filenames and paths that work when hosted beneath the GitHub Pages site URL.
 
 ## Project detail pages
 
@@ -111,7 +113,7 @@ For example, a homepage link to `projects/applications/app-name/` opens that app
 
 ## Using the assets directory
 
-`assets/` is for static files the site uses, such as images and downloadable documents. The homepage portrait lives in `assets/images/`; network design visuals are in `assets/images/network-design/`, and application images are grouped by app under `assets/images/applications/<app-name>/`. Add résumé and cover-letter PDFs to `assets/documents/` when they are ready. The homepage will link to those files once they exist, rather than displaying broken downloads.
+`assets/` is for static files the site uses, such as images and downloadable documents. The homepage portrait lives in `assets/images/`; network design visuals are in `assets/images/network-design/`, and application images are grouped by app under `assets/images/applications/<app-name>/`. The current résumé PDF lives in `assets/resume/` and is linked for download. Add the cover-letter PDF to `assets/documents/` when it is ready; the homepage will link to it once it exists, rather than displaying a broken download.
 
 Other folders can be added if the site needs them—for example, `assets/icons/` for custom icon files or `assets/fonts/` for locally hosted fonts. If the page's CSS or JavaScript grows enough to move out of `index.html`, those source files would usually live in top-level `css/` or `js/` folders instead. Avoid creating empty folders or duplicating files that are already available elsewhere.
 
