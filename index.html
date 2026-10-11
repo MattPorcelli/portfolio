@@ -2,86 +2,1642 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101722" />
+  <meta name="description" content="Matthew Porcelli's portfolio: practical automation, platform engineering, and a thoughtful approach to reliable operations." />
+  <title>Matthew Porcelli | Automation &amp; Platform Engineering</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
+    :root {
+      color-scheme: dark;
+      --page: #101722;
+      --page-soft: #141e2b;
+      --surface: rgba(24, 35, 49, 0.82);
+      --surface-strong: #192536;
+      --border: rgba(170, 192, 216, 0.14);
+      --text: #edf3f8;
+      --muted: #a9b7c7;
+      --quiet: #75879b;
+      --accent: #75d8c4;
+      --accent-soft: rgba(117, 216, 196, 0.1);
+      --blue: #8eb8f2;
+      --content-width: 1120px;
+    }
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem;
     }
 
-    .container {
-      text-align: center;
-      padding: 2rem;
-      max-width: 600px;
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 82% 9%, rgba(63, 105, 145, 0.17), transparent 32rem),
+        linear-gradient(145deg, #111a27 0%, var(--page) 56%, #101923 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 10;
+      padding: 0.65rem 0.9rem;
+      transform: translateY(-160%);
+      border-radius: 8px;
+      background: var(--accent);
+      color: #0d1b1d;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid rgba(170, 192, 216, 0.1);
+      background: rgba(16, 23, 34, 0.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner,
+    main,
+    .site-footer {
+      width: min(var(--content-width), calc(100% - 3rem));
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 72px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .identity {
+      display: grid;
+      gap: 0.05rem;
+      text-decoration: none;
+    }
+
+    .identity strong {
+      font-size: 0.98rem;
+      letter-spacing: -0.025em;
+    }
+
+    .identity span {
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 2.5vw, 2rem);
+    }
+
+    .site-nav a {
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .site-nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.75fr);
+      align-items: center;
+      gap: clamp(3rem, 8vw, 7rem);
+      min-height: 610px;
+      padding-block: 6rem 5.5rem;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: 0.73rem;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
+      max-width: 720px;
+      margin-bottom: 1.35rem;
+      font-size: clamp(2.8rem, 6.5vw, 5.15rem);
+      font-weight: 720;
+      letter-spacing: -0.065em;
+      line-height: 1.02;
     }
 
-    p {
-      font-size: 1.25rem;
-      line-height: 1.6;
-      opacity: 0.9;
-      margin-bottom: 2rem;
+    h1 span {
+      color: var(--blue);
     }
 
-    .progress-bar {
+    .hero-tagline {
+      max-width: 620px;
+      margin: -0.5rem 0 1.35rem;
+      color: #bdc9d6;
+      font-size: clamp(1rem, 1.5vw, 1.13rem);
+      line-height: 1.7;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      margin-bottom: 1.8rem;
+      color: #bdc9d6;
+      font-size: clamp(1rem, 1.5vw, 1.13rem);
+      line-height: 1.8;
+    }
+
+    .hero-copy-intro {
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .button:disabled {
+      opacity: 1;
+      cursor: default;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(117, 216, 196, 0.45);
+      background: var(--accent-soft);
+    }
+
+    .button-primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #102020;
+    }
+
+    .button-primary:hover {
+      border-color: #a1eddd;
+      background: #a1eddd;
+    }
+
+    .button-disabled:not(.button-primary) {
+      border-color: var(--border);
+      color: var(--quiet);
+      cursor: not-allowed;
+    }
+
+    .hero-note {
+      margin: 1.1rem 0 0;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 650;
+    }
+
+    .portrait-card {
+      position: relative;
+      width: min(100%, 360px);
+      justify-self: end;
+      margin: 0;
+    }
+
+    .portrait-card img {
+      display: block;
       width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.25);
-      border-radius: 3px;
-      margin: 2rem auto;
-      max-width: 300px;
-      overflow: hidden;
-      animation: pulse 2s infinite ease-in-out;
+      aspect-ratio: 4 / 5;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      object-fit: cover;
+      object-position: center 38%;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
     }
 
-    .footer {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.875rem;
-      opacity: 0.7;
+    .section {
+      padding-block: 5.3rem;
+      border-top: 1px solid rgba(170, 192, 216, 0.11);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1fr);
+      align-items: end;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-heading h2 {
+      max-width: 540px;
+      margin-bottom: 0;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      letter-spacing: -0.055em;
+      line-height: 1.12;
+    }
+
+    .section-heading > p {
+      max-width: 520px;
+      margin-bottom: 0.15rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card-practice {
+      grid-column: 1 / -1;
+    }
+
+    .project-card-featured {
+      grid-column: 1 / -1;
+    }
+
+    .project-card {
+      padding: 1.45rem;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: linear-gradient(145deg, rgba(25, 37, 54, 0.86), rgba(20, 30, 44, 0.68));
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 1.25rem;
+    }
+
+    .practice-card {
+      min-width: 0;
+    }
+
+    .practice-card + .practice-card {
+      margin-top: 1.4rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(170, 192, 216, 0.14);
+    }
+
+    .practice-card h4 {
+      margin: 0 0 0.65rem;
+      font-size: 1.05rem;
+    }
+
+    .practice-category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .practice-category {
+      margin-top: 1rem;
+    }
+
+    .standards-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 2rem;
+    }
+
+    .practice-category h4,
+    .practice-category h5 {
+      margin: 0 0 0.45rem;
+      color: var(--text);
+      font-size: 0.85rem;
+      letter-spacing: 0.01em;
+    }
+
+    .practice-card p {
+      margin: 0 0 0.65rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.6;
+    }
+
+    .practice-card ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.65;
+    }
+
+    .network-panels {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .network-panel {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(117, 216, 196, 0.08), transparent 48%),
+        linear-gradient(145deg, rgba(25, 37, 54, 0.9), rgba(20, 30, 44, 0.75));
+    }
+
+    .network-panel > h3 {
+      margin-bottom: 1.25rem;
+      font-size: 1.1rem;
+      letter-spacing: -0.025em;
+    }
+
+    .network-production-groups {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .network-lab-groups {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .network-lab-groups > .network-group {
+      grid-column: span 2;
+    }
+
+    .network-lab-secondary-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-column: span 2;
+      gap: 1rem;
+    }
+
+    .network-lab-secondary-groups .network-metrics-lab {
+      grid-template-columns: 1fr;
+    }
+
+    .network-group h4 {
+      margin: 0 0 0.75rem;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .network-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .network-metrics-lab {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .network-metric {
+      display: grid;
+      align-content: center;
+      min-height: 104px;
+      padding: 0.9rem;
+      border: 1px solid rgba(170, 192, 216, 0.1);
+      border-radius: 10px;
+      background: rgba(12, 19, 29, 0.32);
+    }
+
+    .network-metric-value {
+      display: block;
+      color: var(--blue);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      font-weight: 720;
+      letter-spacing: -0.055em;
+      line-height: 1;
+    }
+
+    .network-metric-label {
+      display: block;
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    .network-metric-label-strong {
+      margin: 0 0 0.65rem;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .network-metric-value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .network-metric-unit {
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .transport-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .transport-card {
+      padding: 0.9rem;
+      border: 1px solid rgba(170, 192, 216, 0.1);
+      border-radius: 10px;
+      background: rgba(12, 19, 29, 0.32);
+    }
+
+    .transport-card h5 {
+      margin: 0 0 0.75rem;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .transport-card dl {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: 0;
+    }
+
+    .transport-card dl div {
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .transport-card dt {
+      grid-row: 2;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .transport-card dd {
+      grid-row: 1;
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+      font-weight: 720;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
       white-space: nowrap;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
+    .card-index,
+    .project-type {
+      display: inline-block;
+      margin-bottom: 1.7rem;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.55rem;
+      font-size: 1.08rem;
+      letter-spacing: -0.025em;
+    }
+
+    .project-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .ai-approach {
+      margin-top: 1.4rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(170, 192, 216, 0.12);
+    }
+
+    .ai-approach h4 {
+      margin: 0 0 0.35rem;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+    }
+
+    .project-card .ai-approach p {
+      max-width: 900px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.65;
+    }
+
+    .stat-value {
+      display: block;
+      margin: -0.9rem 0 0.5rem;
+      color: var(--text);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 720;
+      letter-spacing: -0.055em;
+      line-height: 1.2;
+    }
+
+    .project-card {
+      min-height: 205px;
+    }
+
+    .project-card .project-type {
+      margin-bottom: 1.1rem;
+    }
+
+    .work-group {
+      margin-top: 1.5rem;
+    }
+
+    .work-group + .work-group {
+      margin-top: 1.7rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .work-group h4 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .work-group > p {
+      margin-bottom: 1rem;
+    }
+
+    .design-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .application-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .work-figure {
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(170, 192, 216, 0.14);
+      border-radius: 10px;
+      background: rgba(12, 19, 29, 0.55);
+    }
+
+    .work-figure a {
+      display: block;
+      background: #edf1f6;
+    }
+
+    .work-figure img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: contain;
+    }
+
+    .work-figure figcaption {
+      padding: 0.65rem 0.75rem;
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 620;
+      line-height: 1.45;
+    }
+
+    .application-figure img {
+      aspect-ratio: 16 / 9;
+    }
+
+    .application-figure figcaption {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .application-figure h4 {
+      margin: 0 0 0.4rem;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .application-figure p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .experience-employer {
+      margin: -0.7rem 0 1.25rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .experience-timeline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .experience-timeline li {
+      position: relative;
+      margin-left: 0.35rem;
+      padding: 0 0 1.4rem 1.45rem;
+      border-left: 1px solid var(--border);
+    }
+
+    .experience-timeline li:last-child {
+      padding-bottom: 0;
+      border-left-color: transparent;
+    }
+
+    .experience-timeline li::before {
+      position: absolute;
+      top: 0.25rem;
+      left: -0.32rem;
+      width: 0.62rem;
+      height: 0.62rem;
+      border: 2px solid var(--page);
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
+
+    .experience-dates {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 650;
+    }
+
+    .experience-role {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .experience-timeline p {
+      max-width: 900px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .experience-details {
+      margin: 1.75rem 0 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .experience-detail {
+      display: grid;
+      grid-template-columns: minmax(9rem, 0.25fr) 1fr;
+      gap: 1rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .experience-detail dt {
+      font-weight: 650;
+    }
+
+    .experience-detail dd {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .experience-detail ul {
+      display: grid;
+      gap: 0.35rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .approach {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+      gap: clamp(3rem, 8vw, 7rem);
+    }
+
+    .approach-intro h2 {
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.055em;
+      line-height: 1.12;
+    }
+
+    .approach-intro > p:last-child {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .approach-steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: steps;
+    }
+
+    .approach-steps li {
+      position: relative;
+      display: grid;
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1rem;
+      padding: 0 0 1.6rem;
+      counter-increment: steps;
+    }
+
+    .approach-steps li:not(:last-child)::after {
+      position: absolute;
+      top: 2.65rem;
+      bottom: 0.3rem;
+      left: 1.14rem;
+      width: 1px;
+      background: var(--border);
+      content: "";
+    }
+
+    .approach-steps li::before {
+      display: grid;
+      width: 2.35rem;
+      height: 2.35rem;
+      place-items: center;
+      border: 1px solid rgba(117, 216, 196, 0.27);
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      content: "0" counter(steps);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .approach-steps h3 {
+      margin: 0.1rem 0 0.35rem;
+      font-size: 1rem;
+    }
+
+    .approach-steps p {
+      max-width: 590px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .capability-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(20, 30, 44, 0.65);
+    }
+
+    .capability-group h3 {
+      margin: 0 0 0.75rem;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .capability-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .capability {
+      padding: 0.52rem 0.82rem;
+      border: 1px solid rgba(142, 184, 242, 0.17);
+      border-radius: 999px;
+      background: rgba(142, 184, 242, 0.07);
+      color: #d4e2f2;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 760px) {
+      .capability-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .closing {
+      display: grid;
+      gap: 1.4rem;
+      margin-block: 1rem 5rem;
+      padding: clamp(1.6rem, 5vw, 3rem);
+      border: 1px solid rgba(117, 216, 196, 0.21);
+      border-radius: 16px;
+      background:
+        radial-gradient(ellipse at 95% 0%, rgba(117, 216, 196, 0.1), transparent 45%),
+        rgba(24, 35, 49, 0.75);
+    }
+
+    .closing h2 {
+      margin-bottom: 0.5rem;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      letter-spacing: -0.04em;
+    }
+
+    .closing p {
+      max-width: none;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: 1.4rem 2rem;
+      border-top: 1px solid rgba(170, 192, 216, 0.11);
+      color: var(--quiet);
+      font-size: 0.78rem;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner,
+      main,
+      .site-footer {
+        width: min(var(--content-width), calc(100% - 2rem));
+      }
+
+      .header-inner {
+        min-height: 66px;
+        gap: 1rem;
+      }
+
+      .site-nav {
+        gap: 1rem;
+      }
+
+      .site-nav a {
+        font-size: 0.78rem;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        min-height: auto;
+        padding-block: 5rem 4rem;
+      }
+
+      .portrait-card {
+        justify-self: start;
+        width: min(100%, 340px);
+      }
+
+      .section {
+        padding-block: 4rem;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card-practice {
+        grid-column: auto;
+      }
+
+      .project-card-featured {
+        grid-column: auto;
+      }
+
+      .design-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .application-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .practice-category-grid,
+      .standards-list {
+        grid-template-columns: 1fr;
+      }
+
+      .network-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .network-lab-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .network-lab-groups > .network-group,
+      .network-lab-secondary-groups {
+        grid-column: auto;
+      }
+
+      .transport-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card-index {
+        margin-bottom: 1rem;
+      }
+
+      .approach {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-detail {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
+
+      .closing {
+        margin-bottom: 3rem;
+      }
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 2rem; }
-      p { font-size: 1rem; }
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.25rem;
+        padding-block: 0.7rem;
+      }
+
+      .site-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        column-gap: 0.9rem;
+        row-gap: 0.25rem;
+      }
+
+      .site-nav a {
+        font-size: 0.73rem;
+      }
+
+      .network-metrics,
+      .network-metrics-lab {
+        grid-template-columns: 1fr;
+      }
+
+      .network-lab-secondary-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .transport-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .site-footer {
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>COMING SOON</h1>
-    <p>I'm building my career portfolio.<br>Check back soon!</p>
-    
-    <div class="progress-bar"></div>
-
-    <div class="footer">
-      &copy; 2026 Matthew Porcelli | Under Construction
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="identity" href="#top" aria-label="Matthew Porcelli, home">
+        <strong>Matthew Porcelli</strong>
+        <span>Scottsdale, Arizona</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#top">Home</a>
+        <a href="#approach">Approach</a>
+        <a href="#network">Network</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="intro-title">
+      <div>
+        <p class="eyebrow">Automation &amp; Platform Engineering</p>
+        <h1 id="intro-title">Thoughtful engineering, built around <span>real operational needs.</span></h1>
+        <p class="hero-copy hero-copy-intro">
+          With 20+ years in telecommunications and 17+ years in network engineering, I specialize in IP/MPLS, DWDM transport, QoS strategy, and network architecture. I design scalable, resilient service-provider networks and develop practical automation and platform improvements that simplify operations, strengthen reliability, and help teams work more efficiently.
+        </p>
+        <p class="hero-copy">
+          Explore the scale of the networks I support, my skills, selected projects, and the experience behind my work.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="assets/resume/Matthew%20Porcelli_Resume.pdf" download="Matthew-Porcelli-Resume.pdf">Résumé</a>
+          <a class="button button-primary" href="#contact">Contact</a>
+          <a
+            class="button"
+            href="https://www.linkedin.com/in/matthew-porcelli-817b6368/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn</a>
+        </div>
+        <p class="hero-note">Open to remote opportunities and positions in the Phoenix metro area.</p>
+      </div>
+
+      <figure class="portrait-card">
+        <img
+          src="assets/images/Matthew-Porcelli.jpg"
+          alt="Matthew Porcelli smiling in a blue sweater"
+          fetchpriority="high"
+        />
+      </figure>
+    </section>
+
+    <section class="section" id="approach" aria-labelledby="approach-title">
+      <div class="approach">
+        <div class="approach-intro">
+          <p class="section-kicker">How I work</p>
+          <h2 id="approach-title">Listen. Design. Deploy. Enable.</h2>
+          <p>
+            A practical process that starts with real operational needs and carries through to a solution
+            people can rely on and build upon.
+          </p>
+        </div>
+        <ol class="approach-steps">
+          <li>
+            <div>
+              <h3>Listen</h3>
+              <p>Understand the day-to-day, the people involved, and where time, clarity, or confidence is getting lost.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Design</h3>
+              <p>Shape a straightforward, repeatable path that addresses the real need and can evolve with it.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Deploy</h3>
+              <p>Put the solution into operation with reliability, maintainability, and safe change considered from the start.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>Enable</h3>
+              <p>Share knowledge, support the people using it, and keep improving as operational needs shift.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="network" aria-labelledby="network-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Network at a glance</p>
+          <h2 id="network-title">The scale behind the work.</h2>
+        </div>
+        <p>
+          A few meaningful statistics highlight the scale, capabilities, and reliability of the
+          service-provider network I support—from production and lab device counts and service
+          scale to 99.999% availability.
+        </p>
+      </div>
+      <div class="network-panels">
+        <article class="network-panel">
+          <h3>Production Network</h3>
+          <div class="network-production-groups">
+            <section class="network-group" aria-labelledby="production-ipmpls">
+              <h4 id="production-ipmpls">IP/MPLS</h4>
+              <div class="network-metrics">
+                <div class="network-metric">
+                  <div>
+                    <span class="network-metric-label network-metric-label-strong">Core</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">700+</span>
+                      <span class="network-metric-unit">Routers</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="network-metric">
+                  <div>
+                    <span class="network-metric-label network-metric-label-strong">Access</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">79,000+</span>
+                      <span class="network-metric-unit">Routers</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="network-metric">
+                  <div>
+                    <span class="network-metric-label network-metric-label-strong">Built</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">1.2M+</span>
+                      <span class="network-metric-unit">Services</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="network-group" aria-labelledby="production-transport">
+              <h4 id="production-transport">Transport</h4>
+              <div class="transport-grid">
+                <article class="transport-card">
+                  <h5>Core</h5>
+                  <dl>
+                    <div><dt>Nodes</dt><dd>1,100+</dd></div>
+                    <div><dt>Services</dt><dd>2,700+</dd></div>
+                  </dl>
+                </article>
+                <article class="transport-card">
+                  <h5>Access</h5>
+                  <dl>
+                    <div><dt>Nodes</dt><dd>600+</dd></div>
+                    <div><dt>Services</dt><dd>1,200+</dd></div>
+                  </dl>
+                </article>
+                <article class="transport-card">
+                  <h5>OTN</h5>
+                  <dl>
+                    <div><dt>Nodes</dt><dd>200+</dd></div>
+                    <div><dt>Services</dt><dd>2,000+</dd></div>
+                  </dl>
+                </article>
+              </div>
+            </section>
+          </div>
+        </article>
+        <article class="network-panel">
+          <h3>Lab Environment</h3>
+          <div class="network-lab-groups">
+            <section class="network-group" aria-labelledby="lab-ipmpls">
+              <h4 id="lab-ipmpls">IP/MPLS</h4>
+              <div class="network-metrics network-metrics-lab">
+                <div class="network-metric">
+                  <div>
+                    <span class="network-metric-label network-metric-label-strong">Core</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">30+</span>
+                      <span class="network-metric-unit">Routers</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="network-metric">
+                  <div>
+                    <span class="network-metric-label network-metric-label-strong">Access</span>
+                    <span class="network-metric-value-row">
+                      <span class="network-metric-value">100+</span>
+                      <span class="network-metric-unit">Routers</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div class="network-lab-secondary-groups">
+              <section class="network-group" aria-labelledby="lab-transport">
+                <h4 id="lab-transport">Transport</h4>
+                <div class="network-metrics network-metrics-lab">
+                  <div class="network-metric">
+                    <div>
+                      <span class="network-metric-label network-metric-label-strong">Access</span>
+                      <span class="network-metric-value-row">
+                        <span class="network-metric-value">20+</span>
+                        <span class="network-metric-unit">Nodes</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="network-group" aria-labelledby="lab-virtualization">
+                <h4 id="lab-virtualization">Virtualization</h4>
+                <div class="network-metrics network-metrics-lab">
+                  <div class="network-metric">
+                    <div>
+                      <span class="network-metric-label network-metric-label-strong">Instances</span>
+                      <span class="network-metric-value-row">
+                        <span class="network-metric-value">10</span>
+                        <span class="network-metric-unit">VMs</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Skills</p>
+          <h2 id="skills-title">Areas of focus.</h2>
+        </div>
+        <p>
+          My work spans network design and planning, automation and platforms, testing and observability,
+          and engineering governance. I bring these disciplines together to build reliable networks and
+          make day-to-day operations more effective.
+        </p>
+      </div>
+      <div class="capability-panel" aria-label="Skills">
+        <section class="capability-group" aria-labelledby="focus-network-design">
+          <h3 id="focus-network-design">Network Design &amp; Planning</h3>
+          <div class="capability-list">
+            <span class="capability">IP/MPLS Designs</span>
+            <span class="capability">QoS Strategy</span>
+            <span class="capability">DWDM/Optical Designs</span>
+            <span class="capability">Capacity Planning</span>
+            <span class="capability">Requirements-Based Hardware Selection</span>
+            <span class="capability">Production &amp; Lab Budgetary Planning</span>
+            <span class="capability">Lifecycle Management</span>
+          </div>
+        </section>
+        <section class="capability-group" aria-labelledby="focus-automation">
+          <h3 id="focus-automation">Automation &amp; Platforms</h3>
+          <div class="capability-list">
+            <span class="capability">Network Automation</span>
+            <span class="capability">Containerlab</span>
+            <span class="capability">Docker</span>
+            <span class="capability">Python</span>
+            <span class="capability">Linux</span>
+            <span class="capability">MCP Servers</span>
+            <span class="capability">Tooling Development</span>
+          </div>
+        </section>
+        <section class="capability-group" aria-labelledby="focus-testing-observability">
+          <h3 id="focus-testing-observability">Testing &amp; Observability</h3>
+          <div class="capability-list">
+            <span class="capability">Observability</span>
+            <span class="capability">Prometheus</span>
+            <span class="capability">Grafana</span>
+            <span class="capability">Test Automation</span>
+            <span class="capability">Regression Testing</span>
+            <span class="capability">Robot Framework</span>
+          </div>
+        </section>
+        <section class="capability-group" aria-labelledby="focus-governance">
+          <h3 id="focus-governance">Governance &amp; Documentation</h3>
+          <div class="capability-list">
+            <span class="capability">National Market Governance</span>
+            <span class="capability">Technical Documentation</span>
+            <span class="capability">Engineering Standards</span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Selected work</p>
+          <h2 id="projects-title">Selected work, in three areas.</h2>
+        </div>
+        <p>
+          Explore network designs, applications, and engineering practices through the context,
+          decisions, contributions, and outcomes behind the work.
+        </p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card project-card-featured">
+          <span class="project-type">NETWORK DESIGN</span>
+          <h3>Traffic Behavior and Network Resilience</h3>
+          <p>
+            These examples show how network architecture and traffic behavior change under
+            everyday and failure conditions, followed by a view of geographical and equipment
+            redundancy.
+          </p>
+          <section class="work-group" aria-labelledby="traffic-failure-title">
+            <h4 id="traffic-failure-title">Understanding Network Traffic and Failure Scenarios</h4>
+            <p>Explore the baseline design and traffic flow, then compare how traffic responds to router and fiber events.</p>
+            <p><strong>Note:</strong> Screenshots are sanitized, with confidential details blurred or replaced by generic values.</p>
+            <div class="design-gallery">
+              <figure class="work-figure">
+                <a href="assets/images/network-design/StandardNetworkDesign.png" target="_blank" rel="noopener" title="Open full-size network design diagram">
+                  <img src="assets/images/network-design/StandardNetworkDesign.png" alt="Standard network design topology diagram" loading="lazy" />
+                </a>
+                <figcaption>Standard Network Design</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/StandardTraffic.png" target="_blank" rel="noopener" title="Open full-size traffic flow diagram">
+                  <img src="assets/images/network-design/StandardTraffic.png" alt="Diagram of standard network traffic flow" loading="lazy" />
+                </a>
+                <figcaption>Standard Traffic Flow</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/RouterHardwareFailure.png" target="_blank" rel="noopener" title="Open full-size router failure diagram">
+                  <img src="assets/images/network-design/RouterHardwareFailure.png" alt="Network traffic behavior during a router hardware failure" loading="lazy" />
+                </a>
+                <figcaption>Router Hardware Failure</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/OpticalFiberEvent.png" target="_blank" rel="noopener" title="Open full-size optical fiber event diagram">
+                  <img src="assets/images/network-design/OpticalFiberEvent.png" alt="Network traffic behavior during an optical fiber event" loading="lazy" />
+                </a>
+                <figcaption>Optical Fiber Event</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/TrafficFlowWithLocalFiber.png" target="_blank" rel="noopener" title="Open full-size local fiber traffic diagram">
+                  <img src="assets/images/network-design/TrafficFlowWithLocalFiber.png" alt="Traffic flow using local fiber without transport" loading="lazy" />
+                </a>
+                <figcaption>Traffic Flow with Local Fiber (No Transport)</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/TrafficFlowWithFiberEvent.png" target="_blank" rel="noopener" title="Open full-size fiber event traffic diagram">
+                  <img src="assets/images/network-design/TrafficFlowWithFiberEvent.png" alt="Traffic flow during a fiber event" loading="lazy" />
+                </a>
+                <figcaption>Traffic Flow with Fiber Event</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/TrafficFlowWithFiberEventMulti-Hub.png" target="_blank" rel="noopener" title="Open full-size multi-hub fiber event diagram">
+                  <img src="assets/images/network-design/TrafficFlowWithFiberEventMulti-Hub.png" alt="Traffic flow across multiple hubs during a fiber event" loading="lazy" />
+                </a>
+                <figcaption>Traffic Flow with Fiber Event Multi-Hub</figcaption>
+              </figure>
+              <figure class="work-figure">
+                <a href="assets/images/network-design/GeographicalandRedundantEquipmentProtecton.png" target="_blank" rel="noopener" title="Open full-size geographical protection diagram">
+                  <img src="assets/images/network-design/GeographicalandRedundantEquipmentProtecton.png" alt="Geographical and redundant equipment protection diagram" loading="lazy" />
+                </a>
+                <figcaption>Geographical and Redundant Equipment Protection</figcaption>
+              </figure>
+            </div>
+          </section>
+        </article>
+        <article class="project-card project-card-featured">
+          <span class="project-type">APPLICATIONS BUILT WITH AI</span>
+          <h3>Tools for Network Engineering Workflows</h3>
+          <p>Tools I built to make network design, lab work, inventory planning, and device provisioning more effective. All four applications are run in one or more Docker containers.<br /><br /><strong>Note:</strong> Screenshots are sanitized, with confidential details blurred or replaced by generic values.</p>
+          <div class="application-gallery">
+            <figure class="work-figure application-figure">
+              <a href="assets/images/applications/Containerlab/Canvas.png" target="_blank" rel="noopener" title="Open full-size Containerlab Orchestrator screenshot">
+                <img src="assets/images/applications/Containerlab/Canvas.png" alt="Containerlab Orchestrator topology design canvas" loading="lazy" />
+              </a>
+              <figcaption>
+                <h4>Containerlab Orchestrator</h4>
+                <p>Design and deploy Containerlab topologies visually by placing Nokia routers and Linux hosts on a canvas, configuring connections and startup settings, and deploying without the terminal. Import production routers by hostname or IP with hardware details and configurations prefilled, then use Grafana, Prometheus, and gNMIc telemetry to monitor device health and performance.</p>
+              </figcaption>
+            </figure>
+            <figure class="work-figure application-figure">
+              <a href="assets/images/applications/Harbor/YML Configurator.png" target="_blank" rel="noopener" title="Open full-size Harbor YML Configurator screenshot">
+                <img src="assets/images/applications/Harbor/YML Configurator.png" alt="Harbor YML Configurator interface" loading="lazy" />
+              </a>
+              <figcaption>
+                <h4>Harbor</h4>
+                <p>A unified workspace for hardware lab testing, bringing multiple engineering tools together through REST APIs so engineers can work without switching between separate applications. Docker containers connect Robot Framework tests to Ixia traffic generators, analyze test traffic, and report findings.</p>
+              </figcaption>
+            </figure>
+            <figure class="work-figure application-figure">
+              <a href="assets/images/applications/Endpoint/Planning.png" target="_blank" rel="noopener" title="Open full-size Endpoint replacement planning screenshot">
+                <img src="assets/images/applications/Endpoint/Planning.png" alt="Endpoint equipment lifecycle replacement planning view" loading="lazy" />
+              </a>
+              <figcaption>
+                <h4>Endpoint</h4>
+                <p>Tracks end-of-sale, end-of-support, and end-of-life equipment using live vendor inventory. API integration with the EMS turns network data into lifecycle budget estimates in minutes.</p>
+              </figcaption>
+            </figure>
+            <figure class="work-figure application-figure">
+              <a href="assets/images/applications/ZTP/Dashboard.png" target="_blank" rel="noopener" title="Open full-size ZTP Orchestrator screenshot">
+                <img src="assets/images/applications/ZTP/Dashboard.png" alt="ZTP Orchestrator provisioning dashboard" loading="lazy" />
+              </a>
+              <figcaption>
+                <h4>ZTP Orchestrator (Proof of Concept)</h4>
+                <p>A proof of concept for deterministic, secure, and observable device provisioning. Devices are pre-registered, unknown devices fail closed, and provisioning state is tracked in real time. The goal is to deliver fully provisioned routers with verified SNMPv3 credentials, without CLI access or manual intervention.</p>
+              </figcaption>
+            </figure>
+          </div>
+          <aside class="ai-approach" aria-labelledby="ai-approach-title">
+            <h4 id="ai-approach-title">AI-assisted development</h4>
+            <p>When I work with AI, I don’t just hand it a problem and ask for code. I define the design, architecture, direction, and order&nbsp;of&nbsp;operations first. AI&nbsp;accelerates implementation, but it cannot replace the thinking that has to happen first.</p>
+          </aside>
+        </article>
+        <article class="project-card project-card-practice">
+          <span class="project-type">ENGINEERING PRACTICE</span>
+          <h3>Lab Testing &amp; Evaluations</h3>
+          <div class="practice-grid">
+            <section class="practice-card" aria-label="Evaluation examples">
+              <p>Evaluations combined technical assessment with lab and regression testing, where applicable, to validate capabilities, limitations, network integration, release stability, and cost considerations.</p>
+              <div class="practice-category-grid">
+                <div class="practice-category">
+                  <h4>IP/MPLS</h4>
+                  <ul>
+                    <li><strong>Nokia IXR-e2c evaluation</strong> — Evaluated 1G, 10G, 25G, and 100G interface capabilities, network integration, hardware limitations, and potential cost savings.</li>
+                    <li><strong>Nokia IXR-e2 evaluation</strong> — Evaluated capabilities up to 400G—including 1G, 10G, 25G, and 100G interfaces—along with network integration, hardware limitations, and potential cost savings.</li>
+                  </ul>
+                </div>
+                <div class="practice-category">
+                  <h4>DWDM</h4>
+                  <ul>
+                    <li><strong>WSNOC</strong> — Validated new EMS features and stability across future releases.</li>
+                    <li><strong>1830 PSS nodal code</strong> — Evaluated new nodal-code features and release stability.</li>
+                    <li><strong>D6A2T4E</strong> — Assessed card capabilities, traffic and loss limitations, and potential cost savings.</li>
+                    <li><strong>PSD-2</strong> — Evaluated device capabilities and limitations for traffic handling and loss.</li>
+                    <li><strong>IPREAMP</strong> — Evaluated card capabilities and the limits of alternative transponder and ROADM cards to assess bookended-solution feasibility.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section class="practice-card" aria-labelledby="standards-documentation-title">
+              <h4 id="standards-documentation-title">Standards &amp; Documentation</h4>
+              <p>DWDM standards and procedures guide field and provisioning teams through consistent, secure network deployment and maintenance.</p>
+              <div class="practice-category">
+                <h5>DWDM</h5>
+                <ul class="standards-list">
+                  <li><strong>Commissioning: Configuration and Standards Guide</strong> — Guides field technicians through loading the correct nodal code and applying secure, standardized configurations before deployment.</li>
+                  <li><strong>Equipment Installation and Node Insertion</strong> — Aligns field technicians and provisioners on fiber connections between nodes, then provides EMS standards to follow once a device is visible in the network.</li>
+                  <li><strong>Service Provisioning</strong> — Guides provisioning teams through turning up wave services across the optical network in accordance with established standards.</li>
+                  <li><strong>CBOA Nodal Software Upgrade via WSNOC</strong> — An end-to-end method of procedure (MOP) for upgrading 1830 PSS and PSD-10 shelves, with validation steps and checks to help protect the network's 99.999% availability objective.</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Experience</p>
+          <h2 id="experience-title">A career in telecommunications and networks.</h2>
+        </div>
+        <p>
+          A concise summary of the key points from my résumé. Download the full résumé below.
+        </p>
+      </div>
+      <p class="experience-employer">Cox Communications</p>
+      <ol class="experience-timeline">
+        <li>
+          <time class="experience-dates" datetime="2020">2020 – Present</time>
+          <h3 class="experience-role">Sr Communications / Network Engineer III — National Engineering Design</h3>
+          <p>Lead network design for Cox Business markets, including IP/MPLS and DWDM designs, capacity planning, and budget development. Build automation and lab tooling to support design validation and operations.</p>
+        </li>
+        <li>
+          <time class="experience-dates" datetime="2018">2018 – 2020</time>
+          <h3 class="experience-role">Sr Communications / Network Engineer III — National Sustaining Engineering</h3>
+          <p>Set QoS design, strategy, and policy for the Cox Business network; documented IP/MPLS and DWDM standards, supported product engineering, and developed automation and test platforms.</p>
+        </li>
+        <li>
+          <time class="experience-dates" datetime="2009">2009 – 2018</time>
+          <h3 class="experience-role">Network Operations Engineer II — Southwest Region</h3>
+          <p>Supported regional network planning, deployment standards, escalations, DWDM design, and IP backbone and voice transport operations.</p>
+        </li>
+        <li>
+          <time class="experience-dates" datetime="2008">2008 – 2009</time>
+          <h3 class="experience-role">SOC Specialist (Telephony)</h3>
+          <p>Handled the Test Desk/Data SOC queue with a focus on service-level response, monitored migrations and segmentations through outage resolution, ran daily service and line-configuration reports, and worked auto-provisioning errors.</p>
+        </li>
+        <li>
+          <time class="experience-dates" datetime="2007">2007 – 2008</time>
+          <h3 class="experience-role">EON SOC Specialist (Telephony)</h3>
+          <p>Supported Cornerstone voice migrations, including three DMS migrations, moving 3,600 Network Interface Units and 4,350 lines in seven months. Maintained alarms and audit reports and checked migration and segmentation address lists against maps.</p>
+        </li>
+        <li>
+          <time class="experience-dates" datetime="2006">2006 – 2007</time>
+          <h3 class="experience-role">Customer Service Representative, Technical Support</h3>
+          <p>Supported Cox digital, high-speed internet, and telephony customers by troubleshooting and escalating issues. Also assisted representatives and contributed to recruiting and training projects.</p>
+        </li>
+      </ol>
+      <dl class="experience-details">
+        <div class="experience-detail">
+          <dt>Certifications</dt>
+          <dd>
+            <ul>
+              <li>Nokia Network Routing Specialist (NRS I), 2016</li>
+              <li>Cisco CCNP Route &amp; Switch (300-115), 2015</li>
+              <li>Cisco CCNA, 2005 (recertified 2012)</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="experience-detail">
+          <dt>Education</dt>
+          <dd>
+            <ul>
+              <li>Valencia Community College — A.S., Computer Engineering Technology (Cisco Specialization), 2004</li>
+              <li>Valencia Community College — A.A., 2002</li>
+              <li>Cisco Networking Academy, 2004</li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="closing" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="section-kicker">Contact</p>
+        <h2 id="contact-title">Let’s connect!</h2>
+        <p>
+          I’m focused on the intersection of networking, software engineering, and infrastructure automation, leveraging AI-assisted development to build and operate systems more effectively.
+        </p>
+      </div>
+      <div class="contact-links" aria-label="Contact and professional links">
+        <a class="button button-primary" href="mailto:MattPorcelli@Protonmail.com">MattPorcelli@Protonmail.com</a>
+        <a class="button" href="assets/resume/Matthew%20Porcelli_Resume.pdf" download="Matthew-Porcelli-Resume.pdf">Résumé</a>
+        <a
+          class="button"
+          href="https://www.linkedin.com/in/matthew-porcelli-817b6368/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Matthew Porcelli</p>
+    <p>Built around better ways of working · Scottsdale, AZ</p>
+  </footer>
 </body>
 </html>
