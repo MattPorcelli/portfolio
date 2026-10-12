@@ -423,6 +423,10 @@
       grid-template-columns: 1fr;
     }
 
+    .network-lab-secondary-groups #lab-virtualization {
+      grid-column: span 2;
+    }
+
     .network-group h4 {
       margin: 0 0 0.75rem;
       color: var(--accent);
@@ -440,6 +444,20 @@
 
     .network-metrics-lab {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .network-virtualization-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .network-virtualization-metrics .network-metric-value {
+      font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    }
+
+    .network-virtualization-metrics .network-metric-unit {
+      font-size: 0.78rem;
     }
 
     .network-metric {
@@ -617,6 +635,15 @@
 
     .work-group > p {
       margin-bottom: 1rem;
+    }
+
+    .network-design-focus {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0 0 1rem;
+      padding-left: 1.25rem;
+      color: var(--muted);
+      line-height: 1.65;
     }
 
     .design-gallery {
@@ -1064,8 +1091,16 @@
         grid-template-columns: 1fr;
       }
 
+      .network-virtualization-metrics {
+        grid-template-columns: 1fr;
+      }
+
       .network-lab-secondary-groups {
         grid-template-columns: 1fr;
+      }
+
+      .network-lab-secondary-groups #lab-virtualization {
+        grid-column: auto;
       }
 
       .transport-grid {
@@ -1138,7 +1173,7 @@
 
       <figure class="portrait-card">
         <img
-          src="assets/images/Matthew-Porcelli.jpg"
+          src="assets/images/Matthew-Porcelli-Blue-Blazer.jpg"
           alt="Matthew Porcelli smiling in a blue sweater"
           fetchpriority="high"
         />
@@ -1159,25 +1194,25 @@
           <li>
             <div>
               <h3>Listen</h3>
-              <p>Understand the day-to-day, the people involved, and where time, clarity, or confidence is getting lost.</p>
+              <p>Identify key stakeholders and capture core business objectives, both immediate operational needs and long-term strategic goals. Understand the day-to-day environment to pinpoint where efficiency, clarity, or confidence is being lost.</p>
             </div>
           </li>
           <li>
             <div>
               <h3>Design</h3>
-              <p>Shape a straightforward, repeatable path that addresses the real need and can evolve with it.</p>
+              <p>Architect solutions closely aligned with business goals, operational constraints, and long-term sustainability. Shape a straightforward, repeatable blueprint that directly solves core challenges while scaling seamlessly as needs evolve.</p>
             </div>
           </li>
           <li>
             <div>
               <h3>Deploy</h3>
-              <p>Put the solution into operation with reliability, maintainability, and safe change considered from the start.</p>
+              <p>Validate through structured testing and stakeholder acceptance to ensure seamless execution, high reliability, and strict alignment with business goals.</p>
             </div>
           </li>
           <li>
             <div>
               <h3>Enable</h3>
-              <p>Share knowledge, support the people using it, and keep improving as operational needs shift.</p>
+              <p>Operationalize systems through effective knowledge transfer, team empowerment, and continuous feedback loops. Support long-term success by maintaining high visibility and refining workflows as operational and business priorities shift.</p>
             </div>
           </li>
         </ol>
@@ -1192,8 +1227,9 @@
         </div>
         <p>
           A few meaningful statistics highlight the scale, capabilities, and reliability of the
-          service-provider network I support—from production and lab device counts and service
-          scale to 99.999% availability.
+          service-provider network I support from production device scale maintaining
+          <strong>99.999% availability</strong>, to lab environments, integrated OSS/NMS platforms,
+          and containerized server infrastructure.
         </p>
       </div>
       <div class="network-panels">
@@ -1305,12 +1341,21 @@
                 <h4 id="lab-virtualization">Virtualization</h4>
                 <div class="network-metrics network-metrics-lab">
                   <div class="network-metric">
-                    <div>
-                      <span class="network-metric-label network-metric-label-strong">Instances</span>
-                      <span class="network-metric-value-row">
-                        <span class="network-metric-value">10</span>
-                        <span class="network-metric-unit">VMs</span>
-                      </span>
+                    <div class="network-virtualization-metrics">
+                      <div>
+                        <span class="network-metric-label network-metric-label-strong">Instances</span>
+                        <span class="network-metric-value-row">
+                          <span class="network-metric-value">10</span>
+                          <span class="network-metric-unit">VMs</span>
+                        </span>
+                      </div>
+                      <div>
+                        <span class="network-metric-label network-metric-label-strong">Docker</span>
+                        <span class="network-metric-value-row">
+                          <span class="network-metric-value">25+</span>
+                          <span class="network-metric-unit">Containers</span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1329,8 +1374,9 @@
         </div>
         <p>
           My work spans network design and planning, automation and platforms, testing and observability,
-          and engineering governance. I bring these disciplines together to build reliable networks and
-          make day-to-day operations more effective.
+          and engineering governance. I bring these disciplines together to execute controlled rollouts
+          backed by rigorous testing, validation, and formal stakeholder acceptance ensuring deployed
+          architectures deliver high reliability, maintainability, and zero-impact change execution.
         </p>
       </div>
       <div class="capability-panel" aria-label="Skills">
@@ -1338,8 +1384,8 @@
           <h3 id="focus-network-design">Network Design &amp; Planning</h3>
           <div class="capability-list">
             <span class="capability">IP/MPLS Designs</span>
-            <span class="capability">QoS Strategy</span>
             <span class="capability">DWDM/Optical Designs</span>
+            <span class="capability">QoS Strategy</span>
             <span class="capability">Capacity Planning</span>
             <span class="capability">Requirements-Based Hardware Selection</span>
             <span class="capability">Production &amp; Lab Budgetary Planning</span>
@@ -1350,31 +1396,38 @@
           <h3 id="focus-automation">Automation &amp; Platforms</h3>
           <div class="capability-list">
             <span class="capability">Network Automation</span>
+            <span class="capability">CI/CD Pipelines</span>
+            <span class="capability">REST APIs</span>
+            <span class="capability">MCP Servers</span>
+            <span class="capability">Tooling Development</span>
             <span class="capability">Containerlab</span>
             <span class="capability">Docker</span>
             <span class="capability">Python</span>
             <span class="capability">Linux</span>
-            <span class="capability">MCP Servers</span>
-            <span class="capability">Tooling Development</span>
           </div>
         </section>
         <section class="capability-group" aria-labelledby="focus-testing-observability">
           <h3 id="focus-testing-observability">Testing &amp; Observability</h3>
           <div class="capability-list">
-            <span class="capability">Observability</span>
             <span class="capability">Prometheus</span>
             <span class="capability">Grafana</span>
+            <span class="capability">Observability</span>
             <span class="capability">Test Automation</span>
-            <span class="capability">Regression Testing</span>
             <span class="capability">Robot Framework</span>
+            <span class="capability">Regression Testing</span>
+            <span class="capability">Validation &amp; Rollout Testing</span>
+            <span class="capability">Pre/Post-Check Automation</span>
           </div>
         </section>
         <section class="capability-group" aria-labelledby="focus-governance">
           <h3 id="focus-governance">Governance &amp; Documentation</h3>
           <div class="capability-list">
             <span class="capability">National Market Governance</span>
-            <span class="capability">Technical Documentation</span>
             <span class="capability">Engineering Standards</span>
+            <span class="capability">Technical Documentation</span>
+            <span class="capability">Methods of Procedure (MOPs)</span>
+            <span class="capability">Stakeholder Acceptance</span>
+            <span class="capability">Change Management &amp; Execution</span>
           </div>
         </section>
       </div>
@@ -1394,15 +1447,18 @@
       <div class="project-grid">
         <article class="project-card project-card-featured">
           <span class="project-type">NETWORK DESIGN</span>
-          <h3>Traffic Behavior and Network Resilience</h3>
+          <h3>Network Architecture &amp; Predictive Traffic Analysis</h3>
           <p>
-            These examples show how network architecture and traffic behavior change under
-            everyday and failure conditions, followed by a view of geographical and equipment
-            redundancy.
+            Leveraging a deep understanding of routing dynamics and traffic behavior to accurately
+            forecast network performance across steady-state and adverse conditions.
           </p>
           <section class="work-group" aria-labelledby="traffic-failure-title">
-            <h4 id="traffic-failure-title">Understanding Network Traffic and Failure Scenarios</h4>
-            <p>Explore the baseline design and traffic flow, then compare how traffic responds to router and fiber events.</p>
+            <h4 id="traffic-failure-title">Analysis Focus</h4>
+            <ul class="network-design-focus">
+              <li><strong>Baseline &amp; Steady-State Modeling:</strong> Analyzing standard traffic distribution and core routing paths under normal operations.</li>
+              <li><strong>Event &amp; Failure Prediction:</strong> Anticipating dynamic path shifts, convergence behavior, and rerouting patterns during router outages or fiber cuts.</li>
+              <li><strong>Resilience &amp; Redundancy:</strong> Demonstrating multi-layer geographical and equipment redundancy frameworks.</li>
+            </ul>
             <p><strong>Note:</strong> Screenshots are sanitized, with confidential details blurred or replaced by generic values.</p>
             <div class="design-gallery">
               <figure class="work-figure">
@@ -1551,10 +1607,10 @@
       <div class="section-heading">
         <div>
           <p class="section-kicker">Experience</p>
-          <h2 id="experience-title">A career in telecommunications and networks.</h2>
+          <h2 id="experience-title">A career in a service provider and networks.</h2>
         </div>
         <p>
-          A concise summary of the key points from my résumé. Download the full résumé below.
+          A concise summary of key points from my résumé highlighting not just core network engineering, but the critical automation, tooling, and supporting systems that power it. Download the full résumé below.
         </p>
       </div>
       <p class="experience-employer">Cox Communications</p>
@@ -1562,32 +1618,32 @@
         <li>
           <time class="experience-dates" datetime="2020">2020 – Present</time>
           <h3 class="experience-role">Sr Communications / Network Engineer III — National Engineering Design</h3>
-          <p>Lead network design for Cox Business markets, including IP/MPLS and DWDM designs, capacity planning, and budget development. Build automation and lab tooling to support design validation and operations.</p>
+          <p>Lead network design for Cox Business markets, including IP/MPLS and DWDM architectures, capacity planning, and budget development. Beyond core networking, heavily architect and build automation, lab tooling, and supporting systems to streamline design validation, deployment, and ongoing operations.</p>
         </li>
         <li>
           <time class="experience-dates" datetime="2018">2018 – 2020</time>
           <h3 class="experience-role">Sr Communications / Network Engineer III — National Sustaining Engineering</h3>
-          <p>Set QoS design, strategy, and policy for the Cox Business network; documented IP/MPLS and DWDM standards, supported product engineering, and developed automation and test platforms.</p>
+          <p>Set QoS design, strategy, and policy for the Cox Business network; documented IP/MPLS and DWDM standards and supported product engineering. Engineered custom automation and test platforms to validate standards, monitor network performance, and simplify operational adoption.</p>
         </li>
         <li>
           <time class="experience-dates" datetime="2009">2009 – 2018</time>
           <h3 class="experience-role">Network Operations Engineer II — Southwest Region</h3>
-          <p>Supported regional network planning, deployment standards, escalations, DWDM design, and IP backbone and voice transport operations.</p>
+          <p>Supported regional network planning, deployment standards, escalations, DWDM design, and IP backbone/voice transport operations. Managed underlying regional tooling, network monitoring platforms, and provisioning systems to maintain high reliability and operational readiness.</p>
         </li>
         <li>
           <time class="experience-dates" datetime="2008">2008 – 2009</time>
           <h3 class="experience-role">SOC Specialist (Telephony)</h3>
-          <p>Handled the Test Desk/Data SOC queue with a focus on service-level response, monitored migrations and segmentations through outage resolution, ran daily service and line-configuration reports, and worked auto-provisioning errors.</p>
+          <p>Handled the Test Desk/Data SOC queue with a focus on service-level response, monitored migrations through outage resolution, and managed auto-provisioning systems, error handling pipelines, and daily service reporting infrastructure.</p>
         </li>
         <li>
           <time class="experience-dates" datetime="2007">2007 – 2008</time>
           <h3 class="experience-role">EON SOC Specialist (Telephony)</h3>
-          <p>Supported Cornerstone voice migrations, including three DMS migrations, moving 3,600 Network Interface Units and 4,350 lines in seven months. Maintained alarms and audit reports and checked migration and segmentation address lists against maps.</p>
+          <p>Supported Cornerstone voice migrations, including three DMS migrations moving 3,600 Network Interface Units and 4,350 lines in seven months. Maintained alarm management systems, database audit tools, and spatial map/address verification data.</p>
         </li>
         <li>
           <time class="experience-dates" datetime="2006">2006 – 2007</time>
           <h3 class="experience-role">Customer Service Representative, Technical Support</h3>
-          <p>Supported Cox digital, high-speed internet, and telephony customers by troubleshooting and escalating issues. Also assisted representatives and contributed to recruiting and training projects.</p>
+          <p>Supported Cox digital, high-speed internet, and telephony customers through technical troubleshooting and escalations. Assisted team representatives and contributed to internal knowledge management systems, recruiting tools, and training frameworks.</p>
         </li>
       </ol>
       <dl class="experience-details">
