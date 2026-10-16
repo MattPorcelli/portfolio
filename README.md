@@ -27,7 +27,7 @@ The design uses a dark navy palette with blue and teal accents. It is being deve
 
 ## Current site
 
-The site is a static page built with HTML and CSS, without a JavaScript framework or build step. The homepage is structured around an introduction and portrait, the numbered Listen → Design → Deploy → Enable approach, network scale, skills, selected projects, experience, and contact. The introduction includes a résumé download link, a LinkedIn link, and a clear statement that Matthew is open to remote opportunities and positions in the Phoenix metro area. The contact section highlights the intersection of networking, software engineering, infrastructure automation, and AI-assisted development. Contact options appear in this order: email, résumé, and LinkedIn. Email opens a message in the visitor's configured mail app; the résumé downloads from `assets/resume/`.
+The site is a static page built with HTML and CSS, without a JavaScript framework or build step. The homepage is structured around an introduction and portrait, the numbered Listen → Design → Deploy → Enable approach, network scale, skills, selected projects, experience, and contact. The introduction includes brief and detailed résumé download links, a LinkedIn link, and a clear statement that Matthew is open to remote opportunities and positions in the Phoenix metro area. The contact section highlights the intersection of networking, software engineering, infrastructure automation, and AI-assisted development. Contact options appear in this order: email, brief résumé, detailed résumé, and LinkedIn. Email opens a message in the visitor's configured mail app; both résumés download from `assets/resume/`.
 
 ## Planned portfolio content
 
@@ -44,8 +44,8 @@ The homepage should give visitors a concise overview of Matthew's experience and
      - **Standards & Documentation** — DWDM commissioning, node installation/insertion, wave-service provisioning, and CBOA nodal software upgrade guidance for field technicians and provisioners.
 
    The homepage should first explain each category, then preview selected examples with concise context and a useful visual. Engineering Practice is presented as one full-width “Lab Testing & Evaluations” panel, with IP/MPLS and DWDM evaluation groups followed by a separate Standards & Documentation section; the lists use responsive columns where space allows. Network design visuals and application screenshots include a note that confidential details are blurred or replaced with generic values. Fuller case-study pages can later expand on the problem, Matthew's contribution, design decisions, implementation, and outcomes.
-5. **Experience** — a dot-marker career timeline covering Cox Communications roles from 2006 to the present, followed by certifications and education. The résumé is downloadable from both the introduction and contact links.
-6. **Contact** — an email link, the résumé download, and a LinkedIn profile link.
+5. **Experience** — a dot-marker career timeline covering Cox Communications roles from 2006 to the present, followed by certifications and education. Both résumé versions are downloadable from the introduction and contact links.
+6. **Contact** — an email link, brief and detailed résumé downloads, and a LinkedIn profile link.
 
 Keep the homepage focused on summaries and evidence. The How I Work section presents the numbered Listen → Design → Deploy → Enable process. The Skills introduction explains how network design, automation, testing, and engineering governance support controlled rollouts backed by rigorous testing, validation, stakeholder acceptance, and reliable, maintainable change execution. The skill groups list design and planning, automation and platforms, testing and observability, and governance and documentation capabilities.
 
@@ -85,7 +85,8 @@ portfolio/
 │               └── index.html   # Authored guidance, audience, requirements, purpose
 └── assets/                  # Static files used by the site
     ├── resume/
-    │   └── Matthew Porcelli_Resume.pdf  # Downloadable résumé
+    │   ├── Matthew_Porcelli_Brief_Resume.pdf     # Downloadable brief résumé
+    │   └── Matthew_Porcelli_Detailed_Resume.pdf  # Downloadable detailed résumé
     ├── images/
     │   ├── Matthew-Porcelli-Blue-Blazer.jpg  # Homepage portrait
     │   ├── network-design/  # Network design diagrams and visuals
@@ -105,7 +106,7 @@ portfolio/
     └── documents/           # Planned: downloadable cover letter PDF
 ```
 
-The homepage portrait is stored directly in `assets/images/`. Network design visuals are in `assets/images/network-design/`; application screenshots are grouped by application under `assets/images/applications/`. The current résumé is stored in `assets/resume/` and linked from the homepage. Add a design-specific subfolder under `network-design/` if the image collection grows enough to benefit from that separation. The documents folder is planned for the cover letter PDF. Use descriptive filenames and paths that work when hosted beneath the GitHub Pages site URL.
+The homepage portrait is stored directly in `assets/images/`. Network design visuals are in `assets/images/network-design/`; application screenshots are grouped by application under `assets/images/applications/`. The brief and detailed résumé PDFs are stored in `assets/resume/` and linked from the homepage. Add a design-specific subfolder under `network-design/` if the image collection grows enough to benefit from that separation. The documents folder is planned for the cover letter PDF. Use descriptive filenames and paths that work when hosted beneath the GitHub Pages site URL.
 
 ## Project detail pages
 
@@ -117,7 +118,7 @@ For example, a homepage link to `projects/applications/app-name/` opens that app
 
 ## Using the assets directory
 
-`assets/` is for static files the site uses, such as images and downloadable documents. The homepage portrait lives in `assets/images/`; network design visuals are in `assets/images/network-design/`, and application images are grouped by app under `assets/images/applications/<app-name>/`. The current résumé PDF lives in `assets/resume/` and is linked for download. Add the cover-letter PDF to `assets/documents/` when it is ready; the homepage will link to it once it exists, rather than displaying a broken download.
+`assets/` is for static files the site uses, such as images and downloadable documents. The homepage portrait lives in `assets/images/`; network design visuals are in `assets/images/network-design/`, and application images are grouped by app under `assets/images/applications/<app-name>/`. The brief and detailed résumé PDFs live in `assets/resume/` and are linked for download. Add the cover-letter PDF to `assets/documents/` when it is ready; the homepage will link to it once it exists, rather than displaying a broken download.
 
 Other folders can be added if the site needs them—for example, `assets/icons/` for custom icon files or `assets/fonts/` for locally hosted fonts. If the page's CSS or JavaScript grows enough to move out of `index.html`, those source files would usually live in top-level `css/` or `js/` folders instead. Avoid creating empty folders or duplicating files that are already available elsewhere.
 
